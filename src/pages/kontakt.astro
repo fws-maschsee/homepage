@@ -1,0 +1,111 @@
+---
+import Layout from '@levino/shipyard-base/layouts/Page.astro'
+import {
+	CONTACT_MAIL,
+	CONTACT_NAME,
+	ORG_URL,
+	REPO_URL,
+	SCHOOL_NAME,
+	SITE_DOMAIN,
+} from '../site.config'
+
+// HINWEIS AN SPÄTERE BEARBEITER:
+//
+// Diese Seite ist zugleich die Anbieterkennzeichnung. Sie nennt
+// Verantwortlichen und E-Mail-Adresse, aber KEINE Postanschrift — die lag
+// beim Erstellen nicht vor und wird nicht erfunden.
+//
+// Für eine rein private, nicht geschäftsmäßige Informationsseite ist das
+// vertretbar. Sobald das Projekt geschäftsmäßig wird oder die Schule es
+// übernimmt, gehört eine vollständige Anbieterkennzeichnung nach § 5 DDG
+// hierher: ladungsfähige Anschrift und, falls einschlägig, die weiteren
+// Pflichtangaben. Das ist eine Entscheidung für einen Menschen, nicht für
+// einen Generator.
+---
+
+<Layout
+  title="Kontakt"
+  description="Verantwortlich für dieses private Elternprojekt: Levin Keller, post@levinkeller.de."
+>
+  <div class="mx-auto max-w-3xl py-10 md:py-16">
+    <h1 class="text-3xl font-bold md:text-4xl">Kontakt</h1>
+
+    <p class="mt-6 text-lg leading-relaxed">
+      Fragen, Kritik, Widerspruch, Interesse an einer Übernahme, oder der
+      Wunsch, dass es dieses Projekt so nicht geben soll: Alles davon ist
+      willkommen, und alles bekommt eine Antwort.
+    </p>
+
+    <section class="mt-10 rounded-lg border border-base-300 p-6">
+      <h2 class="text-xl font-bold">Verantwortlich</h2>
+      <p class="mt-4 leading-relaxed">
+        <strong>{CONTACT_NAME}</strong><br />
+        <a class="link" href={`mailto:${CONTACT_MAIL}`}>{CONTACT_MAIL}</a>
+      </p>
+      <p class="mt-4 text-sm leading-relaxed opacity-80">
+        Privatperson und Vater an der {SCHOOL_NAME}. Verantwortlich für den
+        Betrieb der Technik und für den Inhalt dieser Seite. Diese Seite ist
+        ein privates, nicht geschäftsmäßiges Angebot; es wird damit nichts
+        verkauft und nichts beworben.
+      </p>
+    </section>
+
+    <section class="mt-8 rounded-lg border-l-4 border-warning bg-warning/10 p-6">
+      <h2 class="text-xl font-bold">Nicht die Schule</h2>
+      <p class="mt-3 leading-relaxed">
+        Die {SCHOOL_NAME} ist <strong>nicht</strong> Betreiberin dieser Seite und
+        <strong>nicht</strong> Ansprechpartnerin für dieses Projekt. Sie hat es
+        weder beauftragt noch geprüft. Bitte richten Sie technische oder
+        inhaltliche Rückfragen zu diesem Projekt nicht an das Schulbüro,
+        sondern an die Adresse oben.
+      </p>
+      <p class="mt-3 leading-relaxed">
+        Umgekehrt gilt: Rückfragen <em>aus</em> der Schule — von Schulleitung,
+        Kollegium, Vorstand oder Geschäftsführung — beantworten wir jederzeit
+        und vollständig.
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Wenn Sie das Projekt gut finden</h2>
+      <p class="mt-3 leading-relaxed">
+        Dann ist die wirksamste Rückmeldung nicht die an uns, sondern die an
+        die Schulleitung, das Kollegium oder den Vorstand. Als Eltern können
+        wir dieses Projekt bauen und eine Weile betreiben — dauerhaft
+        verantworten können wir es nicht. Was eine Übernahme bedeuten würde,
+        steht <a class="link" href="/docs/schule">im Abschnitt für die Schule</a>.
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Quelltext</h2>
+      <p class="mt-3 leading-relaxed">
+        Diese Seite ist offen einsehbar:
+        <a class="link break-all" href={REPO_URL}>{REPO_URL}</a>. Die übrigen
+        Bestandteile des Projekts liegen unter
+        <a class="link break-all" href={ORG_URL}>{ORG_URL}</a>.
+      </p>
+      <p class="mt-3 leading-relaxed">
+        Fehler auf dieser Seite? Unter jedem Abschnitt gibt es einen Link zum
+        Bearbeiten. Sie können den Text auch direkt korrigieren.
+      </p>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="text-xl font-bold">Haftung für Inhalte und Links</h2>
+      <p class="mt-3 text-sm leading-relaxed opacity-80">
+        Die Inhalte dieser Seite werden nach bestem Wissen erstellt. Für
+        Aktualität, Vollständigkeit und Richtigkeit wird keine Gewähr
+        übernommen. Für die Inhalte verlinkter externer Seiten sind
+        ausschließlich deren Betreiber verantwortlich. Diese Seite ist keine
+        Rechtsberatung; die Ausführungen zum Datenschutz beschreiben, wie das
+        System gebaut ist, und ersetzen keine juristische Prüfung.
+      </p>
+    </section>
+
+    <p class="mt-10 text-sm opacity-60">
+      {SITE_DOMAIN} — privates Elternprojekt, kein offizielles Angebot der
+      {SCHOOL_NAME}.
+    </p>
+  </div>
+</Layout>

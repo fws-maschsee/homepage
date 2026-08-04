@@ -1,0 +1,330 @@
+---
+import Layout from '@levino/shipyard-base/layouts/Page.astro'
+import Architektur from '../components/Architektur.astro'
+import {
+	CLASS_SITES,
+	CONTACT_MAIL,
+	CONTACT_NAME,
+	REPO_URL,
+	SCHOOL_NAME,
+	SITE_DOMAIN,
+	TEMPLATE_URL,
+} from '../site.config'
+
+const zielgruppen = [
+	{
+		titel: 'Ich bin Mutter oder Vater',
+		text: 'Was habe ich davon, wie komme ich hinein, und was passiert mit meinen Daten?',
+		href: '/docs/eltern',
+		label: 'Für Eltern',
+	},
+	{
+		titel: 'Ich unterrichte an der Schule',
+		text: 'Was bedeutet das für meinen Unterricht, muss ich etwas Neues lernen, was kostet es mich an Zeit?',
+		href: '/docs/lehrkraefte',
+		label: 'Für Lehrkräfte',
+	},
+	{
+		titel: 'Ich trage Verantwortung für die Schule',
+		text: 'Kosten, Haftung, Übernahme, Ausstieg — und was passiert, wenn die Eltern weg sind, die das gebaut haben.',
+		href: '/docs/schule',
+		label: 'Für Schulleitung, Vorstand, Geschäftsführung',
+	},
+	{
+		titel: 'Ich komme von einer anderen Schule',
+		text: 'Wie das aufgebaut ist, was es wirklich kostet und wie Sie es nachbauen.',
+		href: '/docs/nachbauen',
+		label: 'Zum Nachbauen',
+	},
+]
+---
+
+<Layout
+  title="Überblick"
+  description="Zwei Klassen-Websites, ein gemeinsamer Zugang, ein Server für acht Euro im Monat. Ein privates Elternprojekt an der Freien Waldorfschule Hannover-Maschsee — nachvollziehbar dokumentiert und zur Übernahme bereit."
+>
+  <div class="mx-auto max-w-3xl py-10 md:py-16">
+    <!-- ================= Bildschirm 1 ================= -->
+    <header>
+      <p class="text-sm uppercase tracking-wide opacity-60">
+        Ein Elternprojekt an der {SCHOOL_NAME}
+      </p>
+      <h1 class="mt-3 text-3xl font-bold leading-tight md:text-5xl">
+        Ein gemeinsamer Ort für die Unterlagen einer Klasse.
+      </h1>
+      <p class="mt-6 text-lg leading-relaxed md:text-xl">
+        Zwei Klassen unserer Schule haben eine eigene Website: Termine,
+        Protokolle vom Elternabend, der Putzplan, die Klassenkasse, Berichte
+        aus dem Unterricht. Wer zur Klasse gehört, meldet sich einmal an und
+        sieht alles. Wer nicht dazugehört, kommt nicht hinein.
+      </p>
+      <p class="mt-4 text-lg leading-relaxed md:text-xl">
+        Das Ganze läuft seit einiger Zeit, liegt auf einem Server in
+        Deutschland und kostet rund <strong>acht Euro im Monat</strong> —
+        zusammen, nicht pro Klasse. Es hätte Platz für die ganze Schule.
+      </p>
+    </header>
+
+    <!-- Der Status-Hinweis. Steht hier oben, nicht im Impressum. -->
+    <aside
+      class="mt-10 rounded-lg border-l-4 border-warning bg-warning/10 p-5 md:p-6"
+      aria-label="Wichtiger Hinweis zum Status dieses Angebots"
+    >
+      <h2 class="text-lg font-bold">
+        Das hier ist kein Angebot der Schule
+      </h2>
+      <p class="mt-3 leading-relaxed">
+        Diese Seite und alles, was dahinter läuft, wird <strong
+          >privat von Eltern betrieben</strong
+        >. Die {SCHOOL_NAME} hat es <strong>nicht beauftragt</strong>, hat es <strong
+          >nicht geprüft</strong
+        >, und nichts hier gibt eine Position der Schule wieder. Wir sprechen
+        ausschließlich für uns selbst.
+      </p>
+      <p class="mt-3 leading-relaxed">
+        Auch die Adresse sagt das: Sie lesen gerade auf <code
+          class="rounded bg-base-300 px-1.5 py-0.5">{SITE_DOMAIN}</code
+        >. Das <strong>-test</strong> im Namen steht da mit Absicht und bleibt,
+        solange die Schule das Projekt nicht übernommen hat. Es soll auf den
+        ersten Blick klar sein, dass hier kein offizieller Schulauftritt liegt
+        — auch für jemanden, der nur den Link weitergereicht bekommt.
+      </p>
+    </aside>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/docs/eltern" class="btn btn-primary">Ich bin Elternteil</a>
+      <a href="/docs/datenschutz" class="btn btn-outline">Datenschutz</a>
+      <a href="/docs/schule" class="btn btn-outline">Für die Schule</a>
+    </div>
+
+    <!-- ================= Bildschirm 2 ================= -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold md:text-3xl">Was läuft heute wirklich</h2>
+      <p class="mt-4 leading-relaxed">
+        Nicht geplant, nicht vorgestellt — im Betrieb, mit echten Eltern, die
+        es benutzen:
+      </p>
+
+      <ul class="mt-6 space-y-4">
+        {
+          CLASS_SITES.map((site) => (
+            <li class="rounded-lg border border-base-300 p-4">
+              <div class="font-semibold">{site.name}</div>
+              <div class="mt-1 break-all text-sm opacity-80">
+                {site.url.replace('https://', '')} — nur nach Anmeldung
+                erreichbar
+              </div>
+              <div class="mt-1 text-sm opacity-70">
+                Die alte Adresse {site.formerly} leitet dauerhaft hierher
+                weiter. Kalender-Abos der Eltern funktionieren unverändert
+                weiter.
+              </div>
+            </li>
+          ))
+        }
+        <li class="rounded-lg border border-base-300 p-4">
+          <div class="font-semibold">Ein gemeinsamer Zugang</div>
+          <div class="mt-1 text-sm opacity-80">
+            Ein Konto pro Person, nicht eins pro Website. Wer Kinder in zwei
+            Klassen hat, meldet sich trotzdem nur einmal an.
+          </div>
+        </li>
+        <li class="rounded-lg border border-base-300 p-4">
+          <div class="font-semibold">Ein Server, viel Luft</div>
+          <div class="mt-1 text-sm opacity-80">
+            Mit allem zusammen sind rund 10 % der Rechenleistung und 9 % des
+            Arbeitsspeichers belegt. Weitere Klassen kosten praktisch nichts
+            extra.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================= Das Bild ================= -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold md:text-3xl">Wie es aufgebaut ist</h2>
+      <p class="mt-4 leading-relaxed">
+        Vier Bausteine, mehr ist es nicht. Ein Eingangstor nimmt alle Anfragen
+        an. Ein Anmeldedienst prüft, wer Sie sind und zu welcher Klasse Sie
+        gehören. Dahinter liegen die Klassenseiten, jede für sich abgetrennt.
+        Und daneben entstehen gerade die Mailinglisten.
+      </p>
+
+      <Architektur />
+    </section>
+
+    <!-- ================= Grundsätze ================= -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold md:text-3xl">
+        Vier Entscheidungen, die alles andere erklären
+      </h2>
+
+      <div class="mt-6 space-y-6">
+        <div>
+          <h3 class="font-bold">Eine Identität pro Person</h3>
+          <p class="mt-2 leading-relaxed">
+            Nicht ein Konto pro Website, sondern ein Zugang für alles. Das ist
+            nicht nur bequem: Wenn eine Familie die Schule verlässt, gibt es
+            genau eine Stelle, an der ihr Zugang endet — statt fünf, von denen
+            man vier vergisst.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold">Eine getrennte Einheit pro Klasse</h3>
+          <p class="mt-2 leading-relaxed">
+            Jede Klasse ist im Anmeldedienst ein eigener Bereich. Wer nicht
+            dazugehört, kommt nicht hinein — und zwar nicht, weil jemand einen
+            Haken richtig gesetzt hat, sondern weil es gar keinen Weg dorthin
+            gibt. Eine Einstellung kann man vergessen. Eine Struktur nicht.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold">Inhalte als schlichte Textdateien</h3>
+          <p class="mt-2 leading-relaxed">
+            Berichte, Protokolle und Unterlagen liegen als einfache Textdateien
+            in einem privaten Archiv. Eltern bearbeiten sie über eine
+            Weboberfläche, ohne etwas zu installieren. Kein Anbieter, dessen
+            Format man später nicht mehr aufbekommt.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-bold">Alles liegt offen und versioniert vor</h3>
+          <p class="mt-2 leading-relaxed">
+            Wie der Server eingerichtet ist, steht vollständig geschrieben da —
+            wer was wann warum geändert hat, ist nachlesbar. Aus diesen
+            Aufzeichnungen ließe sich der Server komplett neu aufbauen. Das ist
+            der eigentliche Grund, warum die Schule das Projekt übernehmen
+            könnte, ohne von uns abhängig zu sein.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Zielgruppen ================= -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold md:text-3xl">Was Sie hier suchen</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        {
+          zielgruppen.map((z) => (
+            <a
+              href={z.href}
+              class="block rounded-lg border border-base-300 p-5 transition hover:border-primary hover:bg-base-200"
+            >
+              <div class="font-bold">{z.titel}</div>
+              <p class="mt-2 text-sm leading-relaxed opacity-80">{z.text}</p>
+              <span class="mt-3 inline-block text-sm font-semibold text-primary">
+                {z.label} →
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ================= Ehrlichkeit ================= -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold md:text-3xl">Was noch nicht läuft</h2>
+      <p class="mt-4 leading-relaxed">
+        Ein Vorschlag, in dem nur Gutes steht, ist keiner. Das hier ist offen:
+      </p>
+      <ul class="mt-6 space-y-4">
+        <li class="rounded-lg border border-base-300 p-4">
+          <div class="font-semibold">Die Mailinglisten sind im Bau</div>
+          <p class="mt-1 text-sm leading-relaxed opacity-80">
+            Eine E-Mail-Adresse pro Klasse, an die alle Eltern angeschlossen
+            sind. Der Versand steht, der Empfang wird gerade gebaut. Bis dahin
+            bleibt es beim bisherigen Verteiler.
+          </p>
+        </li>
+        <li class="rounded-lg border border-base-300 p-4">
+          <div class="font-semibold">
+            Die Anmeldung zieht gerade um
+          </div>
+          <p class="mt-1 text-sm leading-relaxed opacity-80">
+            Bisher lief sie über ein älteres, einfacheres Verfahren. Sie zieht
+            gerade auf den neuen Anmeldedienst um, mit dem man sich auch mit
+            einem bestehenden Google- oder GitHub-Konto anmelden kann. Während
+            des Umzugs kann es einzelne Stolperstellen geben.
+          </p>
+        </li>
+        <li class="rounded-lg border border-base-300 p-4">
+          <div class="font-semibold">
+            Keine Kontaktdaten, keine Klassenlisten — mit Absicht
+          </div>
+          <p class="mt-1 text-sm leading-relaxed opacity-80">
+            Technisch wäre das längst möglich. Es ist bewusst nicht umgesetzt,
+            solange Sicherung, Löschkonzept und der Vertrag mit dem
+            Server-Anbieter nicht stehen. <a
+              href="/docs/datenschutz"
+              class="link">Warum, steht im Datenschutz-Teil.</a
+            >
+          </p>
+        </li>
+        <li class="rounded-lg border border-base-300 p-4">
+          <div class="font-semibold">Es hängt an wenigen Personen</div>
+          <p class="mt-1 text-sm leading-relaxed opacity-80">
+            Im Moment im Wesentlichen an einer. Das ist der ernsteste Einwand
+            gegen dieses Projekt, und er stimmt. <a href="/docs/schule" class="link"
+              >Was dagegen getan wird, steht im Abschnitt für die Schule.</a
+            >
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ================= Der Aufruf ================= -->
+    <section
+      class="mt-16 rounded-lg border border-primary/40 bg-primary/5 p-6 md:p-8"
+    >
+      <h2 class="text-2xl font-bold md:text-3xl">
+        Wenn Sie das gut finden: Sagen Sie es weiter — nach oben
+      </h2>
+      <p class="mt-4 leading-relaxed">
+        Wir haben das gebaut, weil es unseren beiden Klassen den Alltag
+        erleichtert. Ob daraus etwas für die ganze Schule wird, können wir als
+        Eltern aber weder entscheiden noch auf Dauer verantworten. Das ist
+        keine Koketterie: Eltern ziehen weiter, wenn ihre Kinder die Schule
+        verlassen. Ein Dienst, an dem eine Schulgemeinschaft hängt, darf daran
+        nicht hängen.
+      </p>
+      <p class="mt-4 leading-relaxed">
+        Deshalb die Bitte: <strong
+          >Wenn Sie das sinnvoll finden, gehen Sie auf die Schulleitung, das
+          Kollegium oder den Vorstand zu.</strong
+        > Erzählen Sie, dass es das gibt und dass es funktioniert. Nur von dort
+        kann etwas Dauerhaftes werden.
+      </p>
+      <p class="mt-4 leading-relaxed">
+        Und an die Schule gerichtet: Für Rückfragen stehen wir bereit. Wenn die
+        Schule übernehmen möchte, übergeben wir vollständig — Server, Zugänge,
+        Aufzeichnungen, Dokumentation. Ohne Bedingungen und ohne Rechnung.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/docs/schule" class="btn btn-primary"
+          >Die Fragen der Schulleitung</a
+        >
+        <a href={`mailto:${CONTACT_MAIL}`} class="btn btn-outline">Schreiben Sie uns</a>
+      </div>
+    </section>
+
+    <!-- ================= Kontakt ================= -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold md:text-3xl">Wer dahintersteckt</h2>
+      <p class="mt-4 leading-relaxed">
+        {CONTACT_NAME}, Vater an der Schule. Erreichbar unter <a
+          class="link"
+          href={`mailto:${CONTACT_MAIL}`}>{CONTACT_MAIL}</a
+        >. Fragen, Kritik und Widerspruch sind ausdrücklich willkommen — auch
+        die unbequemen.
+      </p>
+      <p class="mt-4 leading-relaxed">
+        Der Quelltext dieser Seite liegt <a class="link" href={REPO_URL}
+          >offen auf GitHub</a
+        >. Wer eine Klassenseite nachbauen will, findet die <a
+          class="link"
+          href={TEMPLATE_URL}>fertige Vorlage dort ebenfalls</a
+        >.
+      </p>
+    </section>
+  </div>
+</Layout>

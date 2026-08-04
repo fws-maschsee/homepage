@@ -1,0 +1,140 @@
+# Kubernetes-Manifeste der öffentlichen Projektseite.
+#
+# Diese Dateien werden NICHT aus diesem Repository heraus deployt. Sie gehören
+# nach `apps/homepage/` im GitOps-Repository
+# https://github.com/fws-maschsee/server-config - siehe deploy/README.md.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: homepage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage
+  namespace: homepage
+spec:
+  replicas: 1
+  # revisionHistoryLimit: 0, weil alte ReplicaSets ihre Image-Schichten auf
+  # einem Einzelknoten mit einer Platte festhalten und den Knoten in
+  # DiskPressure treiben (runbooks/incidents/disk-pressure.md).
+  revisionHistoryLimit: 0
+  progressDeadlineSeconds: 120
+  selector:
+    matchLabels:
+      app: homepage
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      containers:
+        - name: app
+          # Ohne Tag: Der Tag wird in kustomization.yaml über `images:`
+          # festgeschrieben. Das ist die eine Zeile, die ein Rollout ändert.
+          #
+          # Anders als bei den Klassenseiten darf dieses GHCR-Paket öffentlich
+          # sein - in das Image wird nur der Inhalt dieser Erklärseite
+          # kompiliert, und der ist für alle bestimmt. Kein imagePullSecret:
+          # Der Registry-Credential liegt ohnehin knotenweit in
+          # /etc/rancher/k3s/registries.yaml.
+          image: ghcr.io/fws-maschsee/homepage
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            # @astrojs/node standalone liest HOST/PORT; :: bindet dual-stack.
+            - name: HOST
+              value: "::"
+            - name: PORT
+              value: "3000"
+          resources:
+            requests:
+              cpu: 50m
+              memory: 192Mi
+            limits:
+              # Kein CPU-Limit: CPU ist komprimierbar, ein Limit bringt auf
+              # einem Einzelknoten nur Throttling-Latenz. Speicher ist nicht
+              # komprimierbar und wird deshalb sehr wohl gedeckelt.
+              memory: 512Mi
+          # Hier httpGet und nicht - wie bei den Klassenseiten - tcpSocket.
+          # Die Klassenseiten antworten unangemeldet mit 401; httpGet würde
+          # das als Fehler werten, deshalb genügt dort der TCP-Probe. Diese
+          # Seite ist öffentlich und MUSS mit 200 antworten. Ein Probe, der
+          # das prüft, fängt genau den Fehler ab, der hier am meisten weh
+          # täte: eine Seite, die nur noch für Angemeldete erreichbar ist.
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          # Genau diese Kombination prüft der Smoke-Test im Deploy-Workflow
+          # (--user 1000:1000 --read-only --tmpfs /tmp). Wer hier etwas
+          # verschärft, muss den Smoke-Test mitziehen.
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir:
+            medium: Memory
+            sizeLimit: 64Mi
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: homepage
+  namespace: homepage
+spec:
+  selector:
+    app: homepage
+  ports:
+    - port: 80
+      targetPort: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: homepage
+  namespace: homepage
+  annotations:
+    cert-manager.io/cluster-issuer: acme
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - fws-maschsee-test.de
+      secretName: homepage-tls
+  rules:
+    # Der Apex, nicht eine Subdomain. Der A-Record zeigt bereits auf den
+    # Knoten; am DNS ist nichts zu tun.
+    - host: fws-maschsee-test.de
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: homepage
+                port:
+                  number: 80
