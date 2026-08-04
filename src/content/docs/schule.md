@@ -8,13 +8,13 @@ sidebar:
 # Für Schulleitung, Vorstand und Geschäftsführung
 
 Dieser Abschnitt ist für die Menschen geschrieben, die am Ende
-unterschreiben müssen. Er ist deshalb nüchtern und benennt die Einwände
-zuerst, die uns selbst am meisten beschäftigen.
+unterschreiben müssen. Er ist deshalb nüchtern und beantwortet die Fragen,
+die aus dieser Richtung kommen: was es kostet, was es an Arbeit macht, wie
+eine Übernahme abliefe und wie man wieder herauskäme.
 
-Vorweg der Rahmen: **Wir bitten hier nicht um eine Entscheidung.** Wir
-möchten, dass Ihnen bekannt ist, dass es das gibt, dass es läuft, und dass
-die Tür für eine Übernahme offen steht. Was daraus wird, entscheiden Sie —
-oder eben nicht.
+**Die Schule könnte das übernehmen.** Wir zeigen den laufenden Betrieb,
+erklären, was er braucht, und übergeben vollständig. Levin Keller begleitet
+die Übernahme.
 
 ## Was kostet das?
 
@@ -24,17 +24,21 @@ Der laufende Betrieb ist der überraschendste Teil dieser Rechnung.
 | --- | --- |
 | Server (netcup VPS Lite 2 G12s, 4 vCPU, 8 GB RAM, 160 GB SSD) | **rund 8 € brutto im Monat** |
 | Alle Programme darauf | 0 € — durchgehend quelloffen, keine Lizenzen |
-| Zusätzliche Klasse | 0 € — es ist Platz da |
+| Zusätzliche Klasse oder Anwendung | 0 € — es ist Platz da |
 | Domains | gering, aber nicht null; hängt davon ab, welche Adressen behalten werden |
 | GitHub (Ablage der Inhalte und automatische Auslieferung) | derzeit im kostenlosen Rahmen |
 
-Das sind **rund 96 € im Jahr** für den Server — für die gesamte Schule, nicht
-pro Klasse.
+Zusammen **rund zehn Euro im Monat** — für die gesamte Schule, nicht pro
+Klasse. Keine Lizenzen, keine Nutzergebühren, keine Staffelpreise.
 
-Warum weitere Klassen praktisch nichts kosten: Mit allem, was heute läuft
-(Anmeldedienst mit eigener Datenbank, zwei Klassenseiten, die gesamte
-Grundausstattung), sind rund **10 % der Rechenleistung und 9 % des
-Arbeitsspeichers** fest belegt. Da ist Luft für ein Vielfaches.
+Warum weitere Klassen und Anwendungen praktisch nichts kosten: Mit allem,
+was heute läuft — Anmeldedienst mit eigener Datenbank, Mailinglisten, zwei
+Klassenseiten und die gesamte Grundausstattung —, lag die Rechenlast am
+4. August 2026 bei **4 bis 5 %** und der belegte Arbeitsspeicher bei **rund
+43 %**. Den Arbeitsspeicher belegt fast vollständig die Grundausstattung,
+die nicht mitwächst; eine weitere Klassenseite braucht davon rund **50 MB**.
+Da ist Luft für ein Vielfaches. Gemessen wurde mit `kubectl top`; die
+Aufschlüsselung steht im [Technik-Abschnitt](/docs/technik).
 
 **Was in dieser Rechnung nicht steht — und das ist der ehrliche Teil:**
 Arbeitszeit. Aufbau und Betrieb sind bisher unbezahlte Elternarbeit. Wenn die
@@ -44,28 +48,12 @@ Wartungsvertrag, oder weiterhin Ehrenamt — dann aber mit einer klaren
 Absprache statt stillschweigend. Der Betrieb ist bewusst so gebaut, dass er
 wenig Zuwendung braucht; er braucht aber nicht null.
 
-## Wer haftet?
+## Wer ist heute wofür zuständig?
 
-**Heute: eine Privatperson.** Levin Keller betreibt Server und Dienste privat
-und trägt dafür die Verantwortung. Die Schule haftet nicht — sie hat das
-Projekt weder beauftragt noch geprüft, und diese Seite sagt das an mehreren
-Stellen ausdrücklich, damit kein anderer Eindruck entsteht.
-
-Das ist zugleich der stärkste Grund, über eine Übernahme zu sprechen. Der
-jetzige Zustand ist für die Schule risikoarm, aber er ist auch instabil:
-
-- Für die **Inhalte** sind die Eltern verantwortlich, die sie schreiben.
-- Für den **Betrieb** ist eine Privatperson verantwortlich.
-- Sobald jemand den Eindruck gewinnt, das sei ein Angebot der Schule, hat die
-  Schule ein Problem, ohne je etwas entschieden zu haben.
-
-Gegen genau diesen Eindruck arbeitet dieses Projekt aktiv an: mit dem
-Hinweisbalken über jeder Seite, mit dem Abschnitt ganz oben auf der
-Startseite — und damit, dass die Adresse selbst **`-test`** heißt. Wer den
-Link ungefragt weitergereicht bekommt, sieht schon in der Adresszeile, dass
-das kein offizieller Schulauftritt ist. Der Zusatz verschwindet erst, wenn
-die Schule das Projekt tatsächlich übernommen hat — vorher wäre er eine
-Irreführung.
+Für die **Inhalte** die Eltern, die sie schreiben. Für den **Betrieb** eine
+Privatperson: Levin Keller. Nicht die Schule — sie hat das Projekt weder
+beauftragt noch geprüft, und darum steht `-test` in der Adresse, solange das
+so ist.
 
 Datenschutzrechtlich wäre die Schule bei einer Übernahme **Verantwortliche**
 im Sinne der DSGVO. Was dafür fehlt, steht ungeschönt am Ende des
@@ -76,16 +64,9 @@ Verarbeitungstätigkeiten, eine förmliche Datenschutzerklärung.
 
 ## Was passiert, wenn die Eltern weg sind, die das gebaut haben?
 
-Das ist der ernsteste Einwand gegen dieses Projekt. Er ist berechtigt, und er
-wird hier nicht kleingeredet.
-
-**Der Befund:** Der Aufbau hängt derzeit im Wesentlichen an einer Person.
-Wenn diese Person morgen ausfällt, läuft das System zwar weiter — es ist so
-gebaut, dass es niemanden zum Weiterlaufen braucht —, aber es gäbe zunächst
-niemanden, der eine Störung beheben oder eine Änderung vornehmen könnte.
-
-**Was dagegen getan wird**, und zwar nicht als Absichtserklärung, sondern
-bereits umgesetzt:
+Die naheliegendste Frage, und sie hat eine Antwort. Der Aufbau hängt derzeit
+im Wesentlichen an einer Person. Was ihn davon unabhängig macht, ist bereits
+gebaut und keine Absichtserklärung:
 
 1. **Alles ist aus Aufzeichnungen reproduzierbar.** Wie der Server
    eingerichtet ist, steht vollständig als Text in einem Archiv — nicht in
@@ -110,10 +91,8 @@ bereits umgesetzt:
    wenn morgen alles Übrige verschwände, blieben Protokolle, Berichte und
    Unterlagen lesbar — mit jedem Texteditor.
 
-**Was das trotzdem nicht ersetzt:** eine zweite Person, die es kann. Solange
-die Schule nicht übernimmt, gibt es diese Person nicht, und das bleibt ein
-Risiko. Wir können es nicht auflösen; wir können es nur benennen und dafür
-sorgen, dass ein Wechsel möglich ist, wenn er nötig wird.
+**Was das trotzdem nicht ersetzt:** eine zweite Person, die es kann. Genau
+die kommt mit einer Übernahme dazu.
 
 ## Wie würde eine Übernahme praktisch ablaufen?
 
@@ -137,20 +116,6 @@ In dieser Reihenfolge, und jeder Schritt ist einzeln abbrechbar:
 
 Für all das gibt es keine Rechnung, keine Lizenz und keine Bedingung. Es ist
 kein Angebot, aus dem jemand ein Geschäft machen will.
-
-## Und wenn die Schule das nicht will?
-
-Dann ist das eine legitime Antwort, und sie ändert für die Schule nichts.
-
-Das Projekt läuft dann weiter als das, was es heute ist: eine private
-Einrichtung von Eltern für ihre eigenen Klassen, deutlich als solche
-gekennzeichnet, ohne Anspruch, für die Schule zu sprechen. Wenn die letzte
-beteiligte Familie die Schule verlässt, endet es.
-
-Wenn die Schule möchte, dass es **gar nicht** existiert — also auch nicht als
-Privatprojekt —, ist das ein Gespräch, das wir führen und dessen Ergebnis
-wir akzeptieren. Uns ist wichtiger, dass die Schule sich nicht übergangen
-fühlt, als dass diese Server laufen.
 
 ## Wie kommen wir wieder heraus, wenn wir es nicht mehr wollen?
 
@@ -183,8 +148,16 @@ wieder herauskommt, muss man nicht mit Vorsicht betreten.
   man vier vergisst.
 - **Keine Abhängigkeit von einem Anbieter.** Alles quelloffen, alles
   umziehbar.
-- **Kalkulierbare Kosten.** Rund 96 € im Jahr für den Server, unabhängig von
-  der Zahl der Klassen.
+- **Kalkulierbare Kosten.** Rund 96 € im Jahr für den Server, mit den
+  Domains in der Größenordnung von 120 € — unabhängig von der Zahl der
+  Klassen.
+- **Jede weitere Anwendung ist billig.** Weil Anmeldung, Rechenplatz und
+  eine Vorlage bereits stehen, kostet die nächste Anwendung Arbeitszeit und
+  sonst fast nichts. Was auf dieser Grundlage möglich wäre — von Seiten für
+  Arbeitsgemeinschaften bis zu Anwendungen, die Schüler:innen selbst bauen
+  und in Betrieb nehmen —, steht im
+  [Technik-Abschnitt](/docs/technik#was-auf-dieser-grundlage-möglich-wäre).
+  Gebaut ist davon nichts; die Grundlage dafür schon.
 
 ## Womit müssen Sie rechnen?
 

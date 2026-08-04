@@ -30,15 +30,16 @@ Auf der Klassenseite liegt all das an einer Stelle:
   erreicht.
 - **Berichte** — was in der Klasse passiert ist.
 
+Dazu gibt es **eine E-Mail-Adresse für die ganze Klasse**: Wer alle Eltern
+erreichen will, schreibt an eine Adresse statt an eine Verteilerkette, die
+irgendwann nicht mehr stimmt.
+
 Nichts davon ist neu erfunden. Es ist nur an einem Ort statt an zwölf.
 
 ## Wie melde ich mich an?
 
 Sie brauchen nichts zu installieren. Sie rufen die Adresse Ihrer Klasse auf,
-und es erscheint eine Anmeldeseite.
-
-Sobald der Umzug auf den neuen Anmeldedienst abgeschlossen ist, haben Sie
-drei Möglichkeiten:
+und es erscheint eine Anmeldeseite. Sie haben drei Möglichkeiten:
 
 1. **Mit Ihrem bestehenden Google-Konto** anmelden.
 2. **Mit Ihrem bestehenden GitHub-Konto** anmelden — falls Sie eins haben.
@@ -68,9 +69,13 @@ Zwei Dinge vorweg, weil sie oft überraschen:
 
 - **Es gibt kein Tracking und keine Werbung.** Niemand wird gezählt,
   wiedererkannt oder weiterverkauft.
-- **Kontaktdaten und Klassenlisten liegen dort nicht.** Nicht, weil es nicht
-  ginge, sondern weil wir es erst tun, wenn die Voraussetzungen dafür
-  vollständig geklärt sind.
+- **Von Ihnen liegt dort nur, was gebraucht wird**: Ihr Zugang, Ihre
+  Zugehörigkeit zur Klasse und die Adresse für den Klassenverteiler. Das
+  steht in einer Datenbank auf dem Server, aus der es sich auch wieder
+  löschen lässt — und ausdrücklich nicht in der Versionsverwaltung, aus der
+  man nichts mehr herausbekommt. Warum diese Trennung entscheidend ist,
+  steht im
+  [Datenschutz-Teil](/docs/datenschutz#warum-diese-trennung-so-wichtig-ist).
 
 ## Wer kann meine Sachen sehen?
 
@@ -98,10 +103,9 @@ Nachricht — dann trägt es jemand anders ein.
 
 ## Was ist mit meinen Kalender-Abos von früher?
 
-Die funktionieren weiter. Die alten Adressen `klasse-poellmann.de` und
-`klasse-christophers.de` leiten dauerhaft auf die neuen Seiten um. Wer den
-Klassenkalender abonniert hat, muss nichts tun; die Termine kommen wie
-bisher.
+Die funktionieren weiter. Die früheren Adressen der Klassenseiten leiten
+dauerhaft auf die neuen um. Wer den Klassenkalender abonniert hat, muss
+nichts tun; die Termine kommen wie bisher.
 
 ## Was, wenn wir die Schule verlassen?
 

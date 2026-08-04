@@ -17,9 +17,11 @@ selbst gebaut hat.
 ## Was Sie brauchen
 
 - **Einen Server.** Bei uns ein netcup VPS Lite 2 G12s für rund 8 € brutto
-  im Monat: 4 vCPU, 8 GB RAM, 160 GB SSD. Bei rund 10 % Rechen- und 9 %
-  Speicherbelegung mit zwei Klassen ist das für eine ganze Schule reichlich
-  bemessen. Es geht auch kleiner.
+  im Monat: 4 vCPU, 8 GB RAM, 160 GB SSD. Gemessen mit zwei Klassen und dem
+  gesamten Unterbau: 4 bis 5 % Rechenlast, rund 43 % Arbeitsspeicher (Stand
+  4. August 2026). Für eine ganze Schule ist das reichlich bemessen. Es geht
+  auch kleiner — der Arbeitsspeicher ist die knappere Größe, nicht die
+  Rechenleistung.
 - **Eine Domain.**
 - **Eine Person mit Grundkenntnissen in Linux und Kubernetes.** Das ist die
   eigentliche Voraussetzung — nicht das Geld. Wer noch nie einen Server
@@ -87,10 +89,18 @@ in dem Moment aus, in dem jemand anders übernehmen soll — und dieser Moment
 kommt bei einem Elternprojekt garantiert.
 
 **Domains nach der Klasse benennen, nicht nach der Lehrkraft.** Unsere
-Vorgänger hießen `klasse-poellmann.de` und `klasse-christophers.de`. An einer
+Vorgänger-Domains trugen den Namen der Klassenlehrkraft. An einer
 Waldorfschule wechselt die Klassenlehrkraft; die Adresse aber steckt dann
 schon in Lesezeichen und Kalender-Abos und lässt sich nicht mehr ändern.
 Benennen Sie nach der Klasse.
+
+**Und auf einer öffentlichen Projektseite gar keine konkreten Klassen
+nennen.** Wer dort Klassennamen, Lehrkräfte und die Hostnamen der
+geschützten Seiten aufführt, gibt preis, welche Klasse welche Inhalte unter
+welcher Adresse liegen hat — über Menschen, die niemand gefragt hat. Die
+Zugriffskontrolle bleibt zwar wirksam, aber die Zuordnung selbst gehört
+nicht ins offene Netz. Die Zahl der beteiligten Klassen trägt das Argument
+vollständig; der Name trägt nichts bei.
 
 **Alte Adressen dauerhaft weiterleiten.** Kalender-Abos brechen sonst still.
 Niemand merkt es, bis Termine fehlen.

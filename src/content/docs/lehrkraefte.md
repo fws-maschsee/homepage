@@ -38,12 +38,11 @@ Antwort für alle nachlesbar an einer Stelle liegt, landen sie dort.
 Nichts. Die Adresse der Klassenseite enthält bewusst **nicht** Ihren Namen
 mehr.
 
-Das ist eine Lehre aus dem Bestand: Die beiden Klassen hießen früher
-`klasse-poellmann.de` und `klasse-christophers.de` — benannt nach der
-Klassenlehrkraft. An einer Waldorfschule wechselt die Klassenlehrkraft im
-Lauf der acht Jahre; dann stimmt die Adresse nicht mehr, und weil Eltern sie
-als Lesezeichen und Kalender-Abo gespeichert haben, kann man sie nicht
-einfach ändern.
+Das ist eine Lehre aus dem Bestand: Die früheren Adressen der beiden
+Klassenseiten waren nach der Klassenlehrkraft benannt. An einer
+Waldorfschule wechselt die Klassenlehrkraft im Lauf der acht Jahre; dann
+stimmt die Adresse nicht mehr, und weil Eltern sie als Lesezeichen und
+Kalender-Abo gespeichert haben, kann man sie nicht einfach ändern.
 
 Die neuen Adressen heißen deshalb nach der Klasse und nicht nach der Person.
 Ein Wechsel der Klassenlehrkraft ist damit eine Änderung an genau einer

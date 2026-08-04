@@ -22,8 +22,13 @@ Build absichtlich scheitern, wenn `/` mit 401 oder 403 antwortet.
 
 **2. Der Hinweisbalken bleibt und bleibt nicht wegklickbar.**
 `announcementBar` in `astro.config.mjs`, `isCloseable: false`. Dazu der
-ausgeschriebene Kasten oben auf der Startseite. Beides ist Pflicht, nicht
+kurze Statushinweis oben auf der Startseite. Beides ist Pflicht, nicht
 Gestaltung.
+
+Er ist **kurz und sachlich**, kein Warnkasten: „Privates Angebot aus der
+Elternschaft. Kein offizielles Angebot der Freien Waldorfschule
+Hannover-Maschsee." Er klärt eine Verwechslungsgefahr — er verteidigt
+nichts.
 
 **3. Keine Zahl ohne Beleg.**
 Serverkosten, Auslastung, Versionsnummern, Zertifikatszustand: Was hier steht,
@@ -31,24 +36,99 @@ muss zum Zeitpunkt des Schreibens nachgemessen worden sein. Wer eine Zahl
 aktualisiert, misst sie vorher nach. Die Glaubwürdigkeit dieser Seite ist ihr
 einziges Kapital.
 
-**4. Was nicht läuft, steht auch drauf.**
-Der Abschnitt „Was noch nicht läuft" auf der Startseite und „Was fehlt noch —
-ehrlich" im Datenschutz-Teil sind keine Schönheitsfehler, die man bei
-Gelegenheit wegräumt. Sie sind der Grund, warum man dem Rest glauben kann.
-Wird ein Punkt erledigt, wird er dort gestrichen — und wenn ein neuer
-auftaucht, kommt er dazu.
+Bei der Auslastung: **gemessene** Werte (`kubectl top node`), nicht die
+reservierten aus `Requests`. Die beiden gehen weit auseinander, und die
+reservierten sagen nichts darüber, wie viel Platz noch da ist. Wo beide
+genannt werden, muss dabeistehen, welcher welcher ist.
 
-**5. Kein Fachjargon in den oberen Abschnitten.**
+**4. Kein Fachjargon in den oberen Abschnitten.**
 Startseite und `docs/eltern.md` müssen für ein Elternteil ohne IT-Kenntnisse
 lesbar sein. Begriffe wie GitOps, OIDC oder Kubernetes gehören nach
 `docs/technik.md` — und dort werden sie erklärt, bevor sie benutzt werden.
 
-**6. Keine personenbezogenen Daten in diesem Repository.**
+**5. Keine personenbezogenen Daten in diesem Repository.**
 Es ist öffentlich. Außer Name und E-Mail-Adresse des Ansprechpartners gehört
 hier nichts Personenbezogenes hinein — keine Elternnamen, keine
 Klassenlisten, keine Beispieldaten, die echt aussehen. Dieselbe Regel gilt in
 `server-config` (dort Invariante 6) und aus demselben Grund: Was einmal in
 einer Versionsgeschichte steht, bekommt man nicht mehr heraus.
+
+**6. Keine konkreten Klassen, Lehrkräfte oder deren Adressen.**
+Weder im Text noch in Kommentaren, Metadaten, Beispielen oder
+Konfigurationsdateien. Also keine Klassennamen, keine Lehrkraftnamen, keine
+Hostnamen der geschützten Klassenseiten und keine früheren
+Klassenlehrkraft-Domains.
+
+Diese Seite ist öffentlich. Wer dort „diese Klasse, diese Lehrerin, diese
+Adresse" zusammenschreibt, gibt Angaben über Menschen preis, die niemand
+gefragt hat und die nichts davon haben. Die Zugriffskontrolle bleibt zwar
+wirksam — die Zuordnung selbst gehört trotzdem nicht ins offene Netz.
+
+**Was stattdessen dasteht: die Zahl.** „Zwei Klassengemeinschaften" belegt,
+dass der Betrieb läuft und nicht bloß gedacht ist; das ist der Teil, der das
+Argument trägt. Der Name trägt nichts bei. Die Zahl steht als `CLASS_COUNT`
+in `src/site.config.ts`.
+
+Zwei Ausnahmen, weil sie nichts über die Schule preisgeben: die Schule
+selbst darf genannt werden (sie steht ohnehin im Statushinweis), und Levin
+Keller als Verantwortlicher mit E-Mail-Adresse.
+
+Vor jedem Push prüfen:
+
+```bash
+grep -rniE 'wiesen|christophers|poellmann|pöllmann' \
+  --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=dist .
+```
+
+**7. Die Seite ist ein Angebot, keine Rechtfertigung.**
+Sie beschreibt, was man damit machen kann, was es kostet und wie die Schule
+es übernehmen kann. In dieser Reihenfolge.
+
+Was hier nicht hineingehört, egal wie gut gemeint:
+
+- Passagen, die erklären, warum etwas in Ordnung ist, statt was es kann.
+- Vorwegnahmen von Einwänden, die niemand erhoben hat („Was das
+  ausdrücklich nicht ist", „Warum wir das machen").
+- Rechtsbelehrungen, Namens- und Kennzeichenrechte, Anwälte, Zusagen für
+  den Fall einer Beanstandung. Wer etwas beanstanden will, meldet sich; ein
+  Absatz darüber erzeugt die Frage erst.
+- Regelungen für den Fall der Ablehnung. Sie machen Zustimmung zur
+  aufwendigen und Abwinken zur billigsten aller Antworten.
+
+Eltern, die für ihre eigene Klassengemeinschaft eine Website betreiben,
+brauchen dafür niemandes Erlaubnis. Der Text darf nicht so klingen, als
+bäte er darum.
+
+Prüffrage beim Gegenlesen: *Rechtfertigt sich dieser Absatz, oder bietet er
+etwas an?* Wenn Ersteres — kürzen oder streichen.
+
+**8. Was läuft, steht im Indikativ. Was möglich wäre, im Konjunktiv.**
+Diese Seite wird über Monate gelesen. Deshalb gibt es hier **keine
+To-do-Liste und keinen Baustellenhinweis** — ein Bauzustand von heute liest
+sich beim zweiten Besuch wie Nachlässigkeit, und niemand pflegt so eine
+Liste zuverlässig nach.
+
+Die Unterscheidung läuft stattdessen über die Sprache und über getrennte
+Abschnitte:
+
+- „Heute im Einsatz" — nur, was tatsächlich im Betrieb ist.
+- „Was auf derselben Grundlage möglich wird" — Ausblick, durchgehend
+  Konjunktiv, mit einem Satz davor, der sagt, dass davon nichts gebaut ist.
+
+Der Unterschied muss beim Lesen ankommen, **ohne dass irgendwo „noch
+nicht" steht**. Wer etwas aus dem Ausblick nach vorne schiebt, weil es
+„bald fertig" ist, muss es vorher gebaut haben. Ein Pitch, der Absicht als
+Zustand ausgibt, fliegt bei der ersten Nachfrage aus dem Kollegium auf.
+
+Dasselbe gilt für die Aufbau-Grafik: durchgezogener Rahmen = läuft,
+gestrichelter Rahmen = möglich, nicht gebaut.
+
+**9. Nie pauschal „ist datenschutzkonform".**
+Das ist eine rechtliche Aussage, die an Prozessen hängt und nicht an
+Technik; sie hält keiner Nachfrage stand. Stattdessen benennen, was
+tatsächlich zutrifft und überprüfbar ist: Standort des Servers,
+Zugriffsbeschränkung, Löschbarkeit. Das überzeugt mehr, weil es belegbar
+ist.
 
 ## Bauen und prüfen
 
@@ -93,6 +173,26 @@ Die Aufbau-Grafik ist bewusst Inline-SVG mit Tailwind-/daisyUI-Farbklassen
 (`fill-base-content`, `stroke-primary/50` …) statt fester Farbwerte: Nur so
 passt sie sich dem hellen und dem dunklen Farbschema an. Das Format ist
 hochkant, weil die Seite überwiegend auf Handys gelesen wird.
+
+### Die Startseite im Aufbau
+
+`src/pages/index.astro` folgt der Reihenfolge, die der Betreiber vorgegeben
+hat, und die bleibt so:
+
+1. **Was man damit machen kann** — „Heute im Einsatz", dann der Ausblick
+2. **Was es kostet**
+3. **Wie die Schule das übernehmen kann**
+4. **Fragen** (FAQ)
+
+**Eine weitere Frage in die FAQ eintragen:** in `src/pages/index.astro` an
+das Array `fragen` ein Objekt anhängen — `frage` als eine Zeile, `antwort`
+als Liste von Absätzen. Die Reihenfolge im Array ist die Reihenfolge auf der
+Seite; sonst ist nichts zu tun. Der Ausblick steht analog im Array
+`moeglich`.
+
+Die ausführliche Datenschutz-FAQ bleibt, wo sie ist:
+`src/content/docs/datenschutz.md`. Auf der Startseite steht davon nur eine
+Kurzfassung in der FAQ, kein eigener Fließtext-Abschnitt.
 
 ## Verwandte Repositories
 

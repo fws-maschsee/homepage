@@ -51,10 +51,11 @@ eine sogenannte Versionsverwaltung: Sie merkt sich jede Fassung, die es je
 gab, und wer sie wann geändert hat. Das ist für Protokolle großartig — man
 kann nachvollziehen, was wann beschlossen wurde, und nichts geht verloren.
 
-**2. Personenbezogene Daten liegen dort ausdrücklich nicht.**
+**2. Personenbezogene Daten liegen in einer Datenbank auf dem Server —
+ausdrücklich nicht im Archiv.**
 Wer wer ist, wer zu welcher Klasse gehört, welche E-Mail-Adresse zu welchem
-Zugang gehört — das steht in einer Datenbank auf dem Server, hinter dem
-Anmeldedienst. Nicht im Archiv.
+Zugang gehört, wer auf welchem Klassenverteiler steht: Das alles steht
+hinter dem Anmeldedienst in einer Datenbank. Nicht im Archiv.
 
 ### Warum diese Trennung so wichtig ist
 
@@ -88,9 +89,8 @@ kann man vergessen zu setzen. Eine Struktur nicht.
 
 Konkret heißt das:
 
-- Eltern der Klasse Wiesen sehen die Seite der Klasse Wiesen — und keine
-  andere.
-- Wer in beiden Klassen Kinder hat, sieht beide, mit einem Zugang.
+- Eltern sehen die Seite ihrer eigenen Klasse — und keine andere.
+- Wer in zwei beteiligten Klassen Kinder hat, sieht beide, mit einem Zugang.
 - Wer zu keiner der Klassen gehört, sieht die Anmeldeseite und sonst nichts.
 - **Auch die Ablagen dahinter sind privat.** Sie sind nicht öffentlich
   einsehbar, und das mitgelieferte fertige Programmpaket ebenfalls nicht —
@@ -121,12 +121,15 @@ die Technik.
 
 ## Und Kontaktdaten? Klassenlisten? Telefonnummern?
 
-**Liegen dort nicht. Technisch wäre es möglich, es ist bewusst nicht
-umgesetzt.**
+**Was heute dort liegt**, ist das, was der Betrieb braucht: der Zugang einer
+Person, ihre Zugehörigkeit zu einer Klasse und die E-Mail-Adresse, unter der
+sie auf dem Klassenverteiler steht. Das steht in der Datenbank hinter dem
+Anmeldedienst, und es lässt sich dort auch wieder löschen.
 
-Das ist die Antwort, bei der man am ehesten geneigt wäre zu schwindeln, denn
-eine digitale Klassenliste wäre der offensichtlichste Nutzen von allen. Sie
-kommt trotzdem erst, wenn drei Dinge stehen:
+**Was heute nicht dort liegt**, ist die vollständige Klassenliste mit
+Telefonnummern und Anschriften. Technisch wäre sie möglich — sie wäre
+vermutlich sogar der offensichtlichste Nutzen von allen. Sie kommt trotzdem
+erst, wenn drei Dinge stehen:
 
 1. **Ein Sicherungskonzept**, das nicht nur beschreibt, wie gesichert wird,
    sondern auch, wie eine Löschung in die Sicherungen durchschlägt. Eine
@@ -136,12 +139,9 @@ kommt trotzdem erst, wenn drei Dinge stehen:
 3. **Ein Auftragsverarbeitungsvertrag** mit dem Server-Anbieter (siehe
    unten).
 
-Solange das nicht steht, gibt es hier keine Klassenliste. Wir halten das für
-das aussagekräftigste Beispiel dafür, wie hier gearbeitet wird: Nicht
-„machen wir und regeln es später", sondern „regeln wir und machen es dann".
-
-Wenn Sie eine Klassenliste vermissen: Das ist ein berechtigter Wunsch, und
-er ist notiert. Er kommt nach den drei Punkten und nicht davor.
+Die Reihenfolge ist Absicht: nicht „machen wir und regeln es später",
+sondern „regeln wir und machen es dann". Wenn Sie eine Klassenliste
+vermissen — der Wunsch ist berechtigt und notiert.
 
 ## Was ist ein Auftragsverarbeitungsvertrag, und warum brauchen wir einen?
 
@@ -285,6 +285,5 @@ Stelle:
 - **Eine unabhängige Prüfung** durch die Schule oder deren
   Datenschutzbeauftragte hat nicht stattgefunden. Wir wären froh darüber.
 
-Genau deshalb liegen dort auch keine Kontaktdaten und keine Klassenlisten.
-Ein System, das mehr verspricht, als sein Unterbau trägt, ist gefährlicher
-als eines, das weniger kann.
+Genau deshalb liegt dort auch noch keine vollständige Klassenliste mit
+Telefonnummern und Anschriften.

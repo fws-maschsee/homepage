@@ -50,17 +50,31 @@ erreichbar unter
 [id.fws-maschsee-test.de](https://id.fws-maschsee-test.de).
 
 **Anwendungen.** Zwei Klassenseiten laufen produktiv, beide
-zugriffsgeschützt:
-`klasse-wiesen.fws-maschsee-test.de` und
-`klasse-christophers.fws-maschsee-test.de`.
+zugriffsgeschützt, jede auf einer eigenen Subdomain und in einem eigenen
+Namensraum. Die Hostnamen stehen hier bewusst nicht: Diese Seite ist
+öffentlich, und die Zuordnung „diese Klasse, diese Adresse" gehört nicht
+ins offene Netz. Dazu eine Mailingliste je Klasse: Versand über AWS SES,
+Empfang über einen Cloudflare-Worker.
 
-**Auslastung.** Über alles zusammen sind rund **10 % der Rechenleistung und
-9 % des Arbeitsspeichers** fest reserviert. Es ist Platz für viele weitere
-Klassen.
+**Auslastung.** Zwei Zahlen, die man nicht verwechseln darf:
 
-**Fortbestand der alten Adressen.** `klasse-poellmann.de` und
-`klasse-christophers.de` leiten dauerhaft weiter (HTTP 301), damit
-Lesezeichen und Kalender-Abos der Eltern nicht brechen.
+- **Gemessen** (`kubectl top node`, mehrere Stichproben am 4. August 2026):
+  **4 bis 5 % der Rechenleistung**, **rund 43 % des Arbeitsspeichers**
+  (etwa 3,5 von 8 GB).
+- **Reserviert** (`Requests` im Cluster, also das, was sich die Dienste
+  zusichern lassen): rund **11 % CPU** und **12 % Arbeitsspeicher**.
+
+Die reservierten Werte sind die niedrigeren, weil `Requests` konservativ
+gesetzt sind; die gemessenen sind die aussagekräftigen. Der Arbeitsspeicher
+ist dabei fast vollständig durch die Grundausstattung belegt — allein der
+Auslieferungs-Controller und der Anmeldedienst mitsamt Datenbank machen
+gemessen rund 850 MB aus. Eine zusätzliche Klassenseite belegt davon rund
+**50 MB** (gemessen 31 bis 59 MiB je Pod). Der Platz für weitere Klassen
+ergibt sich aus dieser Differenz, nicht aus einer Schätzung.
+
+**Fortbestand der alten Adressen.** Die früheren, nach der Klassenlehrkraft
+benannten Domains leiten dauerhaft weiter (HTTP 301), damit Lesezeichen und
+Kalender-Abos der Eltern nicht brechen.
 
 ## GitOps — was das heißt
 
@@ -157,16 +171,35 @@ eingebaut. Es gibt keinen Schalter, den jemand versehentlich umlegen könnte.
 Der Quelltext liegt offen:
 [github.com/fws-maschsee/homepage](https://github.com/fws-maschsee/homepage).
 
-## Was noch nicht steht
+## Was auf dieser Grundlage möglich wäre
 
-- **Mailinglisten pro Klasse** (`eltern@klasse-wiesen.lists.fws-maschsee-test.de`)
-  — Versand über AWS SES, Empfang über einen Cloudflare-Worker. Im Aufbau,
-  nicht produktiv.
-- **Der Umzug der Anmeldung** von einem älteren, einfacheren Verfahren auf
-  ZITADEL, mit Anmeldung über bestehende Google- und GitHub-Konten. Läuft
-  gerade.
-- **Personenbezogene Daten über den Anmeldedienst hinaus** — keine
-  Klassenlisten, keine Kontaktdaten. Bewusst zurückgestellt, bis
-  Sicherungskonzept, Löschkonzept und Auftragsverarbeitungsvertrag stehen.
-  Die Begründung steht im
-  [Datenschutz-Abschnitt](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern).
+Der Rest dieses Abschnitts ist Ausblick. **Gebaut ist davon nichts** — es
+steht hier, weil die technische Grundlage die Kosten einer weiteren
+Anwendung bestimmt, und die sind niedrig.
+
+Eine zusätzliche Anwendung braucht: einen Namensraum, ein Deployment mit
+Service und Ingress, einen Eintrag im GitOps-Archiv und eine
+OIDC-Anwendung im Anmeldedienst. Für Websites gibt es dafür eine
+Copier-Vorlage; die Manifeste entstehen daraus in Minuten. Der laufende
+Betrieb kostet den Arbeitsspeicher, den die Anwendung tatsächlich braucht —
+bei einer Astro-SSR-Seite rund 50 MB.
+
+Weil Manifeste, Zugriffsrechte und Anwendungsquelltext durchgehend als
+lesbarer, kommentierter Text vorliegen, kann eine KI sie fortschreiben.
+Genau so ist dieser Cluster entstanden. Wer etwas ergänzen will, braucht
+deshalb Schreibrechte auf ein Repository und eine Vorlage — nicht einen
+Administrator und nicht Zugriff auf den Cluster.
+
+Denkbar wären auf dieser Grundlage etwa: öffentliche Seiten für
+Arbeitsgemeinschaften, ein Umfragewerkzeug, die Koordination der
+Elterndienste, eine Ablage für Lehrmaterialien, eine
+Stundenplanverwaltung, die Abgabe von Hausaufgaben als Pull Request — und
+Anwendungen, die Schüler:innen selbst schreiben und über denselben Weg
+tatsächlich in Betrieb nehmen, mit echter Anmeldung und echten Nutzern.
+
+**Nicht möglich ohne vorherige Klärung:** personenbezogene Daten über das
+hinaus, was heute in der Datenbank des Anmeldedienstes steht — also
+insbesondere vollständige Klassenlisten mit Telefonnummern und Anschriften.
+Das hängt nicht an der Technik, sondern an Sicherungskonzept, Löschkonzept
+und Auftragsverarbeitungsvertrag. Die Begründung steht im
+[Datenschutz-Abschnitt](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern).

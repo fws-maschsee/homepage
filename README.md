@@ -6,8 +6,17 @@ nachbauen wollen.
 
 Live unter <https://fws-maschsee-test.de> — **öffentlich, ohne Anmeldung**.
 
-> **Kein offizielles Angebot der Freien Waldorfschule Hannover-Maschsee.**
-> Privat von Eltern betrieben, von der Schule weder beauftragt noch geprüft.
+> **Privates Angebot aus der Elternschaft.** Kein offizielles Angebot der
+> Freien Waldorfschule Hannover-Maschsee.
+
+**Zwei Regeln, bevor Sie etwas schreiben** (ausführlich in
+[AGENTS.md](AGENTS.md)):
+
+- **Keine konkreten Klassen, Lehrkräfte oder deren Adressen.** Die Seite ist
+  öffentlich. Es steht die Zahl der beteiligten Klassen da, kein Name.
+- **Was läuft, steht im Indikativ; was möglich wäre, im Konjunktiv.** Es gibt
+  hier keine To-do-Liste und keinen Baustellenhinweis — aber auch keine
+  Behauptung, die einer Nachfrage nicht standhält.
 
 ## Inhalte ändern — der einfache Weg
 
@@ -64,7 +73,7 @@ Verfügbar sind `note`, `tip`, `info`, `warning` und `danger`.
 
 | Pfad | Was |
 | --- | --- |
-| `src/pages/index.astro` | Die Startseite. Kein Markdown, weil sie viel Gestaltung enthält. |
+| `src/pages/index.astro` | Die Startseite. Kein Markdown, weil sie viel Gestaltung enthält. Die FAQ steht dort im Array `fragen`, der Ausblick im Array `moeglich` — eine Frage ergänzt man, indem man ein Objekt anhängt. |
 | `src/pages/kontakt.astro` | Kontakt- und Anbieterangaben. |
 | `src/components/Architektur.astro` | Die Grafik des Aufbaus, als Inline-SVG. |
 | `src/content/docs/` | Alle Langtexte (siehe oben). |

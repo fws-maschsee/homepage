@@ -51,19 +51,24 @@ export const CONTACT_MAIL = 'post@levinkeller.de'
 /** Zentraler Anmeldedienst (ZITADEL). */
 export const IDENTITY_URL = 'https://id.fws-maschsee-test.de'
 
-/** Die beiden Klassenseiten, die produktiv laufen. */
-export const CLASS_SITES = [
-	{
-		name: 'Klasse Wiesen',
-		url: 'https://klasse-wiesen.fws-maschsee-test.de',
-		formerly: 'klasse-poellmann.de',
-	},
-	{
-		name: 'Klasse Riemann Christophers',
-		url: 'https://klasse-christophers.fws-maschsee-test.de',
-		formerly: 'klasse-christophers.de',
-	},
-] as const
+/**
+ * Zahl der Klassengemeinschaften, die den Betrieb produktiv nutzen.
+ *
+ * HIER STEHT BEWUSST NUR EINE ZAHL UND KEINE LISTE.
+ *
+ * Diese Seite ist öffentlich. Wer hier Klassennamen, Lehrkräfte oder die
+ * Hostnamen der geschützten Klassenseiten aufführt, gibt preis, welche
+ * Klasse an welcher Adresse welche Inhalte liegen hat — Angaben über
+ * Menschen, die niemand gefragt hat und die nichts davon haben. Die
+ * Zugriffskontrolle bleibt zwar wirksam, aber die Zuordnung selbst gehört
+ * nicht ins offene Netz.
+ *
+ * Die Zahl trägt das Argument vollständig: Sie belegt, dass der Betrieb
+ * läuft und nicht bloß gedacht ist. Der Name trägt nichts bei.
+ *
+ * Nachgezählt am 4. August 2026.
+ */
+export const CLASS_COUNT = 2
 
 /**
  * Der Status-Hinweis. Steht als nicht wegklickbarer Balken über jeder Seite
