@@ -76,6 +76,12 @@ Zwei Dinge vorweg, weil sie oft überraschen:
   man nichts mehr herausbekommt. Warum diese Trennung entscheidend ist,
   steht im
   [Datenschutz-Teil](/docs/datenschutz#warum-diese-trennung-so-wichtig-ist).
+- **Anschrift und Telefonnummer gehören nicht dazu.** Dafür entsteht eine
+  eigene Seite: Dort trügen Sie Ihre eigenen Angaben selbst ein und
+  entschieden selbst, welche Klasse sie sehen darf — jederzeit widerruflich.
+  Niemand trüge etwas für Sie ein, und wer nichts einträgt, steht nirgends.
+  Wie das gebaut ist, steht im
+  [Datenschutz-Teil](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern).
 
 ## Wer kann meine Sachen sehen?
 

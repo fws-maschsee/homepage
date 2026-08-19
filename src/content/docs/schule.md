@@ -57,10 +57,11 @@ so ist.
 
 Datenschutzrechtlich wäre die Schule bei einer Übernahme **Verantwortliche**
 im Sinne der DSGVO. Was dafür fehlt, steht ungeschönt am Ende des
-[Datenschutz-Abschnitts](/docs/datenschutz#was-fehlt-noch--ehrlich): ein
-Auftragsverarbeitungsvertrag mit dem Anbieter, ein abgenommenes
-Sicherungs- und Löschkonzept, ein Verzeichnis von
-Verarbeitungstätigkeiten, eine förmliche Datenschutzerklärung.
+[Datenschutz-Abschnitts](/docs/datenschutz#was-fehlt-noch--ehrlich): eine
+automatische Datensicherung — es gibt derzeit keine —, ein unterschriebener
+Auftragsverarbeitungsvertrag mit dem Anbieter, ein abgenommenes Sicherungs-
+und Löschkonzept, ein Verzeichnis von Verarbeitungstätigkeiten, eine
+förmliche Datenschutzerklärung.
 
 ## Was passiert, wenn die Eltern weg sind, die das gebaut haben?
 
@@ -162,8 +163,11 @@ wieder herauskommt, muss man nicht mit Vorsicht betreten.
 ## Womit müssen Sie rechnen?
 
 - **Personalaufwand**, siehe oben. Klein, aber nicht null.
-- **Ein Datenschutzverfahren**, das ordentlich zu Ende geführt werden muss,
-  bevor mehr als Protokolle und Unterlagen darin liegen.
+- **Ein Datenschutzverfahren**, das ordentlich zu Ende geführt werden muss.
+  Es geht dabei nicht nur um Protokolle und Unterlagen: Dazu kämen
+  Kontaktdaten, die Eltern selbst eintragen und je Klasse selbst freigeben
+  (siehe
+  [Datenschutz](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern)).
 - **Erwartungen.** Sobald es ein Angebot der Schule ist, erwarten Eltern,
   dass es funktioniert, und melden sich, wenn nicht. Das ist der Preis dafür,
   dass es genutzt wird.
