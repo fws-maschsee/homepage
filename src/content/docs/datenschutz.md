@@ -178,7 +178,7 @@ deshalb an keinem der Anbieter vorbei, die für die Mailinglisten vorgesehen
 sind — AWS SES für den Versand, ein Cloudflare-Worker für den Empfang. Das
 ist erwähnenswert, weil das Argument von ganz oben — europäischer Standort,
 europäische Eigentümerkette — bei diesen beiden nicht trägt. Für die
-Kontaktdaten wird es gar nicht erst gebraucht: Sie kommen dort nicht vorbei.
+Kontaktdaten wird es gar nicht erst gebraucht.
 
 ### Was aus den drei Vorbedingungen geworden ist
 
