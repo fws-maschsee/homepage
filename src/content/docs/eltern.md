@@ -36,6 +36,102 @@ irgendwann nicht mehr stimmt.
 
 Nichts davon ist neu erfunden. Es ist nur an einem Ort statt an zwölf.
 
+## Warum soll es ein Kontaktbuch geben?
+
+Zu den Klassenseiten soll eine weitere Seite dazukommen: das Kontaktbuch der
+Klasse. Dort sollen die Anschriften stehen, die Telefonnummern und die
+Vornamen der Kinder. Gebaut ist die Seite nicht. Hier steht, warum es sie
+geben soll.
+
+### Wie es heute ist
+
+Die Klassenliste kommt als Datei mit einer Mail. Wer sie braucht, sucht sie
+in alten Mails.
+
+Es gibt sie mehrfach. Niemand weiß, welche die neueste ist. Zwei Eltern haben
+zwei verschiedene Fassungen, und beide halten ihre für die richtige.
+
+Wer umzieht oder eine neue Nummer hat, muss es allen sagen. In den meisten
+Postfächern stimmt die Liste danach trotzdem nicht.
+
+Einmal im Jahr muss jemand die Angaben einsammeln. Das ist mühsame Arbeit.
+Sie bleibt an einer Person hängen. Vollständig wird sie nie.
+
+Wer die Liste ausdruckt, hat sie auf Papier — mit dem Stand von damals.
+
+### Wie es mit dem Kontaktbuch werden soll
+
+Diese Seite ist geplant und nicht gebaut. So soll sie werden:
+
+Jeder pflegt seine eigenen Angaben. Einmal. Wer umzieht, ändert es an einer
+Stelle. Alle in der Klasse sehen es sofort.
+
+Niemand muss mehr etwas einsammeln.
+
+Nachsehen können Sie auf dem Handy, statt in alten Mails zu suchen. Es gibt
+ein Feld, in das Sie einen Namen tippen. Sie finden darüber auch das Kind:
+Wer wissen will, zu wem das Kind gehört, das gerade im Flur steht, sucht
+nach dem Vornamen des Kindes.
+
+Ausdrucken geht weiter. Der Unterschied: Der Ausdruck entsteht erst in dem
+Moment, in dem Sie ihn anfordern. Er hat damit immer den Stand von heute.
+Dazu gehört ehrlicherweise: Am nächsten Tag ist auch dieser Ausdruck eine
+Papierliste wie jede andere. Das lässt sich nicht wegbauen.
+
+### Warum das für Ihre Angaben besser wäre als heute
+
+Dieser Teil vergleicht nicht mit einem Wunschbild, sondern mit dem, was
+gerade wirklich passiert.
+
+Heute wandert eine Datei mit den Anschriften und Telefonnummern aller
+Familien per Mail durch die Gegend. Daraus folgt:
+
+- Sie liegt danach in Dutzenden von Postfächern. Bei ganz verschiedenen
+  Anbietern, die sich niemand gemeinsam ausgesucht hat. Und sie liegt dort
+  jahrelang.
+- Sie liegt auch bei Familien, die die Schule längst verlassen haben.
+- Sie wird weitergeleitet. Wer sie einmal hat, kann sie an jeden schicken.
+- Sie lässt sich nicht zurückholen. Sagt eine Familie „bitte löscht meine
+  Nummer", müsste jeder Einzelne in seinem Postfach danach suchen. Das tut
+  niemand, und niemand kann es nachprüfen.
+- Wer die Schule verlässt, verschwindet aus keiner dieser Kopien.
+
+Mit dem Kontaktbuch soll es anders sein:
+
+- Die Angaben stehen an einer Stelle. Was Sie ändern, ist sofort überall
+  geändert. Was Sie löschen, ist sofort überall gelöscht.
+- Wer die Klasse verlässt, ist von selbst nicht mehr zu sehen. Daran muss
+  niemand denken.
+- Hineinsehen kann nur, wer gerade zur Klasse gehört.
+- Sie müssen nichts mehr auf Ihrem eigenen Gerät aufbewahren.
+- Jeder gibt selbst an, was er angeben will, und für welche Klasse. Jede
+  einzelne Angabe ist freiwillig.
+
+Der Weg zwischen Ihrem Handy und dem Rechner ist bei allen diesen Seiten
+geschützt. Das ist das kleine Schloss, das Ihnen beim Aufrufen einer Seite
+oben angezeigt wird. Warum das so ist, steht im
+[Datenschutz-Teil](/docs/datenschutz#sind-die-verbindungen-verschlüsselt).
+An die Angaben selbst kommt außerdem heran, wer die Rechner betreut. So ist
+es bei jedem System, das jemand betreibt. Wer das hier ist, steht weiter
+unten.
+
+Zwei Dinge gehören noch dazu, sonst wäre der Vergleich geschönt. Eine Stelle
+statt vieler heißt auch: Diese eine Stelle kann verloren gehen. Was das
+bedeutet, steht offen im Datenschutz-Teil unter
+[Was fehlt noch — ehrlich](/docs/datenschutz#was-fehlt-noch--ehrlich). Und
+wie das Kontaktbuch im Einzelnen gebaut sein soll, steht
+[dort ebenfalls](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern):
+welche Felder es gibt, wie die Freigabe an eine Klasse funktioniert, wie man
+alles auf einen Knopfdruck wieder löscht.
+
+Der Vergleich lautet also: besser als heute. Er lautet nicht: sicher.
+
+### Was daraus später einmal werden könnte
+
+Denkbar ist, dass die Angaben von selbst in das Adressbuch Ihres Telefons
+wandern. Dann würde bei einem Anruf der Name dastehen statt einer
+unbekannten Nummer. Gebaut ist das nicht.
+
 ## Wie melde ich mich an?
 
 Sie brauchen nichts zu installieren. Sie rufen die Adresse Ihrer Klasse auf,
@@ -76,6 +172,10 @@ Zwei Dinge vorweg, weil sie oft überraschen:
   man nichts mehr herausbekommt. Warum diese Trennung entscheidend ist,
   steht im
   [Datenschutz-Teil](/docs/datenschutz#warum-diese-trennung-so-wichtig-ist).
+- **Anschrift und Telefonnummer gehören nicht dazu.** Dafür entsteht eine
+  eigene Seite, das Kontaktbuch der Klasse. Warum es das geben soll und was
+  es für Ihre Angaben ändern würde, steht oben unter
+  [Warum soll es ein Kontaktbuch geben?](#warum-soll-es-ein-kontaktbuch-geben)
 
 ## Wer kann meine Sachen sehen?
 

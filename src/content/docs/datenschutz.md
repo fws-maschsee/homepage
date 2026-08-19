@@ -126,22 +126,90 @@ Person, ihre Zugehörigkeit zu einer Klasse und die E-Mail-Adresse, unter der
 sie auf dem Klassenverteiler steht. Das steht in der Datenbank hinter dem
 Anmeldedienst, und es lässt sich dort auch wieder löschen.
 
-**Was heute nicht dort liegt**, ist die vollständige Klassenliste mit
-Telefonnummern und Anschriften. Technisch wäre sie möglich — sie wäre
-vermutlich sogar der offensichtlichste Nutzen von allen. Sie kommt trotzdem
-erst, wenn drei Dinge stehen:
+Eine Klassenliste mit Telefonnummern und Anschriften gehört nicht dazu. Sie
+ist der offensichtlichste Nutzen von allen — und zugleich der Teil, bei dem
+ein Fehler am meisten anrichtet. Deshalb entsteht sie nicht als Tabelle, die
+jemand befüllt, sondern als eigener Dienst unter einer eigenen Adresse. Wie
+er gebaut ist, steht hier vorab, damit man es nach dem Start nachprüfen
+kann. Warum es ihn überhaupt geben soll, steht ohne Fachbegriffe unter
+[Warum soll es ein Kontaktbuch geben?](/docs/eltern#warum-soll-es-ein-kontaktbuch-geben).
 
-1. **Ein Sicherungskonzept**, das nicht nur beschreibt, wie gesichert wird,
-   sondern auch, wie eine Löschung in die Sicherungen durchschlägt. Eine
-   Löschung, die die Sicherung überlebt, ist keine.
-2. **Ein Löschkonzept**, das festlegt, was beim Weggang einer Familie
-   passiert, wann es passiert und wer es auslöst.
-3. **Ein Auftragsverarbeitungsvertrag** mit dem Server-Anbieter (siehe
-   unten).
+**Jeder pflegt seine eigenen Angaben — und nur die.** Anschrift,
+Telefonnummer, Kontaktadresse und die Vornamen der eigenen Kinder würde jede
+Person selbst eintragen. Niemand trüge etwas für jemand anderen ein, und es
+würde nichts aus einer bestehenden Klassenliste übernommen. Der Dienst
+begänne leer: Wer nichts einträgt, steht nirgends.
 
-Die Reihenfolge ist Absicht: nicht „machen wir und regeln es später",
-sondern „regeln wir und machen es dann". Wenn Sie eine Klassenliste
-vermissen — der Wunsch ist berechtigt und notiert.
+**Freigegeben wird je Klasse, und der Schalter geht in beide Richtungen.**
+Wer seine Angaben der einen Klasse zeigen möchte und der anderen nicht,
+stellt das so ein; wer die Freigabe zurücknehmen möchte, benutzt denselben
+Schalter. Die Freigabe wäre auch keine Bedingung dafür, die Angaben der
+anderen zu sehen — eine Freigabe, ohne die man nicht hineinkommt, ist keine
+freiwillige.
+
+**Sichtbar wäre ein Eintrag nur für Menschen, die in diesem Moment zu
+derselben Klasse gehören.** Die Zugehörigkeit würde bei jedem Aufruf frisch
+beim Anmeldedienst erfragt und nicht als Kopie mitgeführt. Wer die Klasse
+verlässt, verschwände damit von selbst aus den Listen der anderen. Das ist
+der eigentliche Grund für diesen Aufbau: Es gäbe keinen Aufräumvorgang, den
+jemand anstoßen müsste — und deshalb auch keinen, den jemand vergessen kann.
+
+**Es gäbe keine Freitextfelder.** Nur benannte Felder, bei denen feststeht,
+was hineingehört. Damit kann nichts hineingeraten, wofür es keine Spalte
+gibt. Das ist Erfahrung und nicht Vorsicht: Im Adressbuch der Klassen gab es
+einmal ein freies Notizfeld. Es sammelte Kindernamen und Geburtsdaten ein
+und wurde deshalb wieder entfernt.
+
+**Die Vornamen der Kinder stehen bewusst darin.** Eine Klassenliste ohne sie
+verfehlt ihren Zweck — man ruft wegen eines Kindes an, nicht wegen einer
+Anschrift. Es sind Daten von Minderjährigen, und genau deshalb sind sie ein
+benanntes Feld, das Eltern für ihr eigenes Kind ausfüllen oder leer lassen,
+und kein Nebenprodukt von irgendetwas anderem. Nachname und Geburtsdatum
+gehören nicht dazu.
+
+**Selbstauskunft und Löschen sind je ein Knopf.** Eine Seite zeigt, was über
+die eigene Person gespeichert ist und wo es sichtbar ist; ein Knopf daneben
+löscht alles davon in einem Vorgang. Kein Antrag, keine Rückfrage, keine
+Wartezeit. Wer lieber schreibt, schreibt an die Adresse weiter unten —
+beides führt zum selben Ergebnis.
+
+**Die Daten blieben auf dem Server in Nürnberg, und dort allein.** Dieser
+Dienst verschickt nichts und reicht nichts weiter. Die Kontaktdaten kämen
+deshalb an keinem der Anbieter vorbei, die für die Mailinglisten vorgesehen
+sind — AWS SES für den Versand, ein Cloudflare-Worker für den Empfang. Das
+ist erwähnenswert, weil das Argument von ganz oben — europäischer Standort,
+europäische Eigentümerkette — bei diesen beiden nicht trägt. Für die
+Kontaktdaten wird es gar nicht erst gebraucht.
+
+### Was aus den drei Vorbedingungen geworden ist
+
+An dieser Stelle standen drei Bedingungen, die erfüllt sein sollten, bevor
+Kontaktdaten hinzukommen: ein Sicherungskonzept, ein Löschkonzept, ein
+Auftragsverarbeitungsvertrag. Keine davon ist stillschweigend entfallen.
+Zwei sind allerdings anders ausgegangen als gedacht.
+
+**Der Auftragsverarbeitungsvertrag** mit dem Server-Anbieter wird
+geschlossen. netcup bietet einen an; was ein solcher Vertrag regelt, steht
+im nächsten Abschnitt. Er ist Voraussetzung für den Start und nicht etwas,
+das danebenherläuft.
+
+**Das Sicherungskonzept** ist zur unbequemsten der drei Antworten geworden:
+Es gibt keine automatische Sicherung, und vorerst ist auch keine vorgesehen.
+Die ursprüngliche Frage — wie schlägt eine Löschung in die Sicherungen
+durch? — erledigt sich damit, denn es gibt keine, die sie überleben könnte.
+Der Preis dafür steht weiter unten unter „Was fehlt noch" und wird dort
+nicht beschönigt.
+
+**Das Löschkonzept** gibt es nicht als abgenommenes Dokument, und eines zu
+behaupten wäre unredlich. Es gibt stattdessen das, wofür ein Löschkonzept
+sonst da ist: einen Knopf, mit dem jede Person ihre Daten selbst und
+vollständig löscht, und einen Ansprechpartner, der erreichbar ist und
+antwortet. Was beim Weggang aus einer Klasse geschieht, muss dabei gar nicht
+geregelt werden — der Eintrag wird dann nicht mehr angezeigt, ohne dass
+jemand etwas tut.
+
+Der Grundsatz bleibt derselbe: erst regeln, dann machen. An einer Stelle
+lautet die Regelung, dass es keine Sicherung gibt.
 
 ## Was ist ein Auftragsverarbeitungsvertrag, und warum brauchen wir einen?
 
@@ -158,12 +226,13 @@ und wen er seinerseits einschaltet.
 Ohne diesen Vertrag ist die Verarbeitung rechtlich angreifbar, selbst wenn
 technisch alles sauber ist.
 
-**Stand heute:** Der Server wird über einen privaten Vertrag betrieben. Für
-einen Betrieb, in dem personenbezogene Daten über den kleinen Elternkreis
-hinaus verarbeitet werden — und erst recht für einen Betrieb durch die
-Schule — muss ein AVV mit dem Anbieter geschlossen werden. netcup bietet
-einen an. Das ist einer der Punkte, die bei einer Übernahme durch die Schule
-ohnehin neu geschlossen werden müssten, weil dann die Schule Vertragspartner
+**Stand heute:** Der Server wird über einen privaten Vertrag betrieben.
+netcup bietet einen AVV an, und er wird geschlossen — er ist die
+Voraussetzung dafür, dass Kontaktdaten überhaupt dazukommen. Unterschrieben
+ist er nicht, und bis dahin steht er unten bei den offenen Punkten.
+
+Das ändert nichts daran, dass er bei einer Übernahme durch die Schule
+ohnehin neu geschlossen werden müsste, weil dann die Schule Vertragspartner
 wäre und nicht eine Privatperson.
 
 Dasselbe gilt für die Dienste, die für die Mailinglisten vorgesehen sind.
@@ -273,10 +342,17 @@ berechtigt ist.
 Damit niemand später überrascht wird, hier die offenen Punkte an einer
 Stelle:
 
+- **Es gibt keine automatische Sicherung der Datenbank**, und vorerst ist
+  auch keine vorgesehen. Die Folge im Klartext: Geht der Datenträger
+  verloren, sind die Kontaktdaten weg und müssten bei allen neu erfragt
+  werden. Die Inhalte der Klassenseiten trifft das nicht — sie liegen im
+  Archiv und in jeder Arbeitskopie.
 - **Ein förmlicher Auftragsverarbeitungsvertrag** mit dem Server-Anbieter
-  ist noch nicht geschlossen.
+  wird geschlossen; unterschrieben ist er nicht.
 - **Ein schriftliches Sicherungs- und Löschkonzept** existiert als
-  Arbeitsstand, nicht als abgenommenes Dokument.
+  Arbeitsstand, nicht als abgenommenes Dokument. Was es stattdessen gibt,
+  steht oben: einen Löschknopf für jede Person und einen erreichbaren
+  Ansprechpartner.
 - **Ein Verzeichnis von Verarbeitungstätigkeiten** — das, was eine
   verantwortliche Stelle nach Artikel 30 DSGVO führen muss — gibt es noch
   nicht. Es wird gebraucht, sobald die Schule Verantwortliche wird.
@@ -285,5 +361,7 @@ Stelle:
 - **Eine unabhängige Prüfung** durch die Schule oder deren
   Datenschutzbeauftragte hat nicht stattgefunden. Wir wären froh darüber.
 
-Genau deshalb liegt dort auch noch keine vollständige Klassenliste mit
-Telefonnummern und Anschriften.
+Der erste Punkt wiegt bei den Kontaktdaten am schwersten, und deshalb steht
+er oben: Diese Angaben sind gegen einen Verlust nicht gesichert. Sie sind
+allerdings von allem, was hier liegt, das am ehesten Wiederbeschaffbare —
+indem man fragt.
