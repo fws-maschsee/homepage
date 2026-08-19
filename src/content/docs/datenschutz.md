@@ -131,7 +131,8 @@ ist der offensichtlichste Nutzen von allen — und zugleich der Teil, bei dem
 ein Fehler am meisten anrichtet. Deshalb entsteht sie nicht als Tabelle, die
 jemand befüllt, sondern als eigener Dienst unter einer eigenen Adresse. Wie
 er gebaut ist, steht hier vorab, damit man es nach dem Start nachprüfen
-kann.
+kann. Warum es ihn überhaupt geben soll, steht ohne Fachbegriffe unter
+[Warum soll es ein Kontaktbuch geben?](/docs/eltern#warum-soll-es-ein-kontaktbuch-geben).
 
 **Jeder pflegt seine eigenen Angaben — und nur die.** Anschrift,
 Telefonnummer, Kontaktadresse und die Vornamen der eigenen Kinder würde jede
