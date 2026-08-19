@@ -39,8 +39,9 @@ Nichts davon ist neu erfunden. Es ist nur an einem Ort statt an zwölf.
 ## Warum soll es ein Kontaktbuch geben?
 
 Zu den Klassenseiten soll eine weitere Seite dazukommen: das Kontaktbuch der
-Klasse. Dort stünden die Anschriften, die Telefonnummern und die Vornamen der
-Kinder. Diese Seite entsteht gerade. Hier steht, warum sie entsteht.
+Klasse. Dort sollen die Anschriften stehen, die Telefonnummern und die
+Vornamen der Kinder. Gebaut ist die Seite nicht. Hier steht, warum es sie
+geben soll.
 
 ### Wie es heute ist
 
@@ -58,22 +59,24 @@ Sie bleibt an einer Person hängen. Vollständig wird sie nie.
 
 Wer die Liste ausdruckt, hat sie auf Papier — mit dem Stand von damals.
 
-### Wie es mit dem Kontaktbuch wäre
+### Wie es mit dem Kontaktbuch werden soll
 
-Jeder pflegte seine eigenen Angaben. Einmal. Wer umzöge, müsste es nur an
-einer Stelle ändern, und alle in der Klasse sähen es sofort.
+Diese Seite ist geplant und nicht gebaut. So soll sie werden:
 
-Niemand müsste mehr etwas einsammeln.
+Jeder pflegt seine eigenen Angaben. Einmal. Wer umzieht, ändert es an einer
+Stelle. Alle in der Klasse sehen es sofort.
 
-Nachsehen könnten Sie auf dem Handy, statt in alten Mails zu suchen. Es gäbe
-ein Feld, in das Sie einen Namen tippen. Sie fänden darüber auch das Kind:
-Wer wissen will, zu wem das Kind gehört, das gerade im Flur steht, suchte
+Niemand muss mehr etwas einsammeln.
+
+Nachsehen können Sie auf dem Handy, statt in alten Mails zu suchen. Es gibt
+ein Feld, in das Sie einen Namen tippen. Sie finden darüber auch das Kind:
+Wer wissen will, zu wem das Kind gehört, das gerade im Flur steht, sucht
 nach dem Vornamen des Kindes.
 
-Ausdrucken ginge weiter. Der Unterschied wäre, dass der Ausdruck erst in dem
-Moment entstünde, in dem Sie ihn anfordern. Er hätte damit immer den Stand
-von heute. Dazu gehört ehrlicherweise: Vom nächsten Tag an ist auch dieser
-Ausdruck eine Papierliste wie jede andere. Das lässt sich nicht wegbauen.
+Ausdrucken geht weiter. Der Unterschied: Der Ausdruck entsteht erst in dem
+Moment, in dem Sie ihn anfordern. Er hat damit immer den Stand von heute.
+Dazu gehört ehrlicherweise: Am nächsten Tag ist auch dieser Ausdruck eine
+Papierliste wie jede andere. Das lässt sich nicht wegbauen.
 
 ### Warum das für Ihre Angaben besser wäre als heute
 
@@ -83,7 +86,7 @@ gerade wirklich passiert.
 Heute wandert eine Datei mit den Anschriften und Telefonnummern aller
 Familien per Mail durch die Gegend. Daraus folgt:
 
-- Sie liegt danach in dutzenden Postfächern. Bei ganz verschiedenen
+- Sie liegt danach in Dutzenden von Postfächern. Bei ganz verschiedenen
   Anbietern, die sich niemand gemeinsam ausgesucht hat. Und sie liegt dort
   jahrelang.
 - Sie liegt auch bei Familien, die die Schule längst verlassen haben.
@@ -93,22 +96,22 @@ Familien per Mail durch die Gegend. Daraus folgt:
   niemand, und niemand kann es nachprüfen.
 - Wer die Schule verlässt, verschwindet aus keiner dieser Kopien.
 
-Mit dem Kontaktbuch wäre es anders:
+Mit dem Kontaktbuch soll es anders sein:
 
-- Die Angaben stünden an einer Stelle. Was Sie änderten, wäre sofort überall
-  geändert. Was Sie löschten, wäre sofort überall gelöscht.
-- Wer die Klasse verlässt, wäre von selbst nicht mehr zu sehen. Daran müsste
+- Die Angaben stehen an einer Stelle. Was Sie ändern, ist sofort überall
+  geändert. Was Sie löschen, ist sofort überall gelöscht.
+- Wer die Klasse verlässt, ist von selbst nicht mehr zu sehen. Daran muss
   niemand denken.
-- Hineinsehen könnte nur, wer gerade zur Klasse gehört.
-- Sie müssten nichts mehr auf Ihrem eigenen Gerät aufbewahren.
-- Jeder gäbe selbst an, was er angeben will, und für welche Klasse. Jede
-  einzelne Angabe wäre freiwillig.
+- Hineinsehen kann nur, wer gerade zur Klasse gehört.
+- Sie müssen nichts mehr auf Ihrem eigenen Gerät aufbewahren.
+- Jeder gibt selbst an, was er angeben will, und für welche Klasse. Jede
+  einzelne Angabe ist freiwillig.
 
 Der Weg zwischen Ihrem Handy und dem Rechner ist bei allen diesen Seiten
 geschützt. Das ist das kleine Schloss, das Ihnen beim Aufrufen einer Seite
-oben angezeigt wird; warum das so ist, steht im
+oben angezeigt wird. Warum das so ist, steht im
 [Datenschutz-Teil](/docs/datenschutz#sind-die-verbindungen-verschlüsselt).
-An die Angaben selbst käme außerdem heran, wer die Rechner betreut — so ist
+An die Angaben selbst kommt außerdem heran, wer die Rechner betreut. So ist
 es bei jedem System, das jemand betreibt. Wer das hier ist, steht weiter
 unten.
 
@@ -116,18 +119,18 @@ Zwei Dinge gehören noch dazu, sonst wäre der Vergleich geschönt. Eine Stelle
 statt vieler heißt auch: Diese eine Stelle kann verloren gehen. Was das
 bedeutet, steht offen im Datenschutz-Teil unter
 [Was fehlt noch — ehrlich](/docs/datenschutz#was-fehlt-noch--ehrlich). Und
-wie das Kontaktbuch im Einzelnen gebaut wäre — welche Felder es gäbe, wie
-die Freigabe an eine Klasse funktionierte, wie man alles auf einen Knopfdruck
-wieder löscht —, steht
-[dort ebenfalls](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern).
+wie das Kontaktbuch im Einzelnen gebaut sein soll, steht
+[dort ebenfalls](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern):
+welche Felder es gibt, wie die Freigabe an eine Klasse funktioniert, wie man
+alles auf einen Knopfdruck wieder löscht.
 
 Der Vergleich lautet also: besser als heute. Er lautet nicht: sicher.
 
 ### Was daraus später einmal werden könnte
 
-Denkbar wäre, dass die Angaben von selbst in das Adressbuch Ihres Telefons
-wanderten. Dann stünde bei einem Anruf der Name da statt einer unbekannten
-Nummer. Gebaut ist das nicht.
+Denkbar ist, dass die Angaben von selbst in das Adressbuch Ihres Telefons
+wandern. Dann würde bei einem Anruf der Name dastehen statt einer
+unbekannten Nummer. Gebaut ist das nicht.
 
 ## Wie melde ich mich an?
 
