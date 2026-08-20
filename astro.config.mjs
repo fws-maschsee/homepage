@@ -56,10 +56,13 @@ export default defineConfig({
 				textColor: 'oklch(var(--wac))',
 				isCloseable: false,
 			},
-			// Anbieterkennzeichnung im Fuss JEDER Seite, nicht nur auf der
-			// Kontaktseite: Wer sie sucht, sucht sie unten, und ein Besucher
-			// landet ueber eine Suchmaschine mitten im Text und nicht auf der
-			// Startseite.
+			// Anbieterkennzeichnung im Fuss JEDER Seite. WIRKT NOCH NICHT:
+			// shipyard 0.6.1 rendert einen fest eingebauten Fuss („© Levin
+			// Keller, 2025") und wertet diese Angabe nicht aus; ab 0.7.x tut
+			// es das, wie in den Klassenseiten zu sehen. Der Sprung dorthin
+			// verlangt daisyUI 5 und Tailwind 4 und ist ein eigener Schritt.
+			// Bis dahin traegt die Anschrift die Kontaktseite, und die steht
+			// als „Impressum & Kontakt" in der Leiste ueber jeder Seite.
 			footer: { copyright: BETREIBER },
 			// NUR DREI EINTRAEGE, und das ist eine Korrektur: Vorher standen
 			// hier alle Unterseiten der Dokumentation. Auf jeder /docs-Seite
@@ -72,7 +75,7 @@ export default defineConfig({
 				start: { label: 'Überblick', href: '/' },
 				docs: { label: 'Dokumentation', href: '/docs' },
 				datenschutz: { label: 'Datenschutz', href: '/docs/datenschutz' },
-				kontakt: { label: 'Kontakt', href: '/kontakt' },
+				kontakt: { label: 'Impressum & Kontakt', href: '/kontakt' },
 			},
 		}),
 		shipyardDocs({
