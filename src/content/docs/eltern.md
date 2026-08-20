@@ -72,8 +72,6 @@ nach dem Vornamen des Kindes.
 
 Ausdrucken geht weiter. Der Unterschied: Der Ausdruck entsteht erst in dem
 Moment, in dem Sie ihn anfordern. Er hat damit immer den Stand von heute.
-Dazu gehört ehrlicherweise: Am nächsten Tag ist auch dieser Ausdruck eine
-Papierliste wie jede andere. Das lässt sich nicht wegbauen.
 
 ### Warum das für Ihre Angaben besser ist als vorher
 

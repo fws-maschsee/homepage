@@ -96,8 +96,8 @@ Der praktische Unterschied zum Üblichen:
   Antwort auf die Frage, was passiert, wenn die Menschen wechseln, die das
   gebaut haben.
 
-Zur Ehrlichkeit gehört die Ausnahme: Die Zugangsdaten der Infrastruktur
-liegen bewusst nicht im Archiv (siehe oben). Ein Neuaufbau bedeutet deshalb:
+Eine Ausnahme gibt es: Die Zugangsdaten der Infrastruktur liegen bewusst
+nicht im Archiv (siehe oben). Ein Neuaufbau bedeutet deshalb:
 Beschreibung anwenden, danach eine überschaubare Zahl von Zugangsdaten von
 Hand neu erzeugen. Der Weg dafür ist aufgeschrieben.
 
@@ -133,8 +133,7 @@ auf den Klassenseiten steht.
 serverseitig gerendert über den Node-Adapter. Inhalte sind Markdown-Dateien
 im Archiv der jeweiligen Klasse.
 
-Zwei Punkte, die aus schmerzhafter Erfahrung stammen und in der Vorlage
-festgeschrieben sind:
+Zwei Punkte, die in der Vorlage festgeschrieben sind:
 
 - **Die `@levino/*`-Pakete sind auf exakte Versionen festgenagelt**, nicht
   auf `"*"` oder `"^"`. Eine neue Nebenversion setzt eine neue
@@ -145,7 +144,7 @@ festgeschrieben sind:
   `npm install`.** Die Sperrdatei entscheidet, welche Versionen ausgeliefert
   werden. Ein `npm install` löst die Bereiche ein zweites Mal auf, und das
   ausgelieferte Abbild enthält dann etwas anderes als das, was geprüft
-  wurde. Genau daran ist ein Server hier schon einmal gestorben.
+  wurde.
 
 Die Auslieferung: Ein Arbeitsablauf auf GitHub baut bei jeder Änderung ein
 Abbild, **startet es und prüft, dass es antwortet**, und schiebt es erst dann

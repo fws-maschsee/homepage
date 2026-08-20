@@ -41,8 +41,7 @@ die nicht mitwächst; eine weitere Klassenseite braucht davon rund **50 MB**.
 Da ist Luft für ein Vielfaches. Gemessen wurde mit `kubectl top`; die
 Aufschlüsselung steht im [Technik-Abschnitt](/docs/technik).
 
-**Was in dieser Rechnung nicht steht — und das ist der ehrliche Teil:**
-Arbeitszeit. Aufbau und Betrieb sind bisher unbezahlte Elternarbeit. Wenn die
+**Was in dieser Rechnung nicht steht:** Arbeitszeit. Aufbau und Betrieb sind bisher unbezahlte Elternarbeit. Wenn die
 Schule übernimmt, muss sie entscheiden, wer diese Zeit aufbringt: jemand aus
 der Verwaltung mit ein paar Stunden im Monat, ein Dienstleister mit einem
 Wartungsvertrag, oder weiterhin Ehrenamt — dann aber mit einer klaren
