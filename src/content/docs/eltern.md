@@ -36,12 +36,11 @@ irgendwann nicht mehr stimmt.
 
 Nichts davon ist neu erfunden. Es ist nur an einem Ort statt an zwölf.
 
-## Warum soll es ein Kontaktbuch geben?
+## Warum es ein Kontaktbuch gibt
 
-Zu den Klassenseiten soll eine weitere Seite dazukommen: das Kontaktbuch der
-Klasse. Dort sollen die Anschriften stehen, die Telefonnummern und die
-Vornamen der Kinder. Gebaut ist die Seite nicht. Hier steht, warum es sie
-geben soll.
+Neben den Klassenseiten gibt es eine weitere Seite: das Kontaktbuch der
+Klasse. Dort stehen die Anschriften, die Telefonnummern und die Namen der
+Kinder. Hier steht, warum.
 
 ### Wie es heute ist
 
@@ -59,9 +58,7 @@ Sie bleibt an einer Person hängen. Vollständig wird sie nie.
 
 Wer die Liste ausdruckt, hat sie auf Papier — mit dem Stand von damals.
 
-### Wie es mit dem Kontaktbuch werden soll
-
-Diese Seite ist geplant und nicht gebaut. So soll sie werden:
+### Wie es mit dem Kontaktbuch ist
 
 Jeder pflegt seine eigenen Angaben. Einmal. Wer umzieht, ändert es an einer
 Stelle. Alle in der Klasse sehen es sofort.
@@ -78,12 +75,12 @@ Moment, in dem Sie ihn anfordern. Er hat damit immer den Stand von heute.
 Dazu gehört ehrlicherweise: Am nächsten Tag ist auch dieser Ausdruck eine
 Papierliste wie jede andere. Das lässt sich nicht wegbauen.
 
-### Warum das für Ihre Angaben besser wäre als heute
+### Warum das für Ihre Angaben besser ist als vorher
 
 Dieser Teil vergleicht nicht mit einem Wunschbild, sondern mit dem, was
 gerade wirklich passiert.
 
-Heute wandert eine Datei mit den Anschriften und Telefonnummern aller
+Bis dahin wanderte eine Datei mit den Anschriften und Telefonnummern aller
 Familien per Mail durch die Gegend. Daraus folgt:
 
 - Sie liegt danach in Dutzenden von Postfächern. Bei ganz verschiedenen
@@ -96,7 +93,7 @@ Familien per Mail durch die Gegend. Daraus folgt:
   niemand, und niemand kann es nachprüfen.
 - Wer die Schule verlässt, verschwindet aus keiner dieser Kopien.
 
-Mit dem Kontaktbuch soll es anders sein:
+Mit dem Kontaktbuch ist es anders:
 
 - Die Angaben stehen an einer Stelle. Was Sie ändern, ist sofort überall
   geändert. Was Sie löschen, ist sofort überall gelöscht.
@@ -110,21 +107,15 @@ Mit dem Kontaktbuch soll es anders sein:
 Der Weg zwischen Ihrem Handy und dem Rechner ist bei allen diesen Seiten
 geschützt. Das ist das kleine Schloss, das Ihnen beim Aufrufen einer Seite
 oben angezeigt wird. Warum das so ist, steht im
-[Datenschutz-Teil](/docs/datenschutz#sind-die-verbindungen-verschlüsselt).
+[Datenschutz-Teil](/docs/datenschutz).
 An die Angaben selbst kommt außerdem heran, wer die Rechner betreut. So ist
 es bei jedem System, das jemand betreibt. Wer das hier ist, steht weiter
 unten.
 
-Zwei Dinge gehören noch dazu, sonst wäre der Vergleich geschönt. Eine Stelle
-statt vieler heißt auch: Diese eine Stelle kann verloren gehen. Was das
-bedeutet, steht offen im Datenschutz-Teil unter
-[Was fehlt noch — ehrlich](/docs/datenschutz#was-fehlt-noch--ehrlich). Und
-wie das Kontaktbuch im Einzelnen gebaut sein soll, steht
-[dort ebenfalls](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern):
+Wie das Kontaktbuch im Einzelnen gebaut ist, steht im Datenschutz-Teil unter
+[Und Kontaktdaten? Klassenlisten? Telefonnummern?](/docs/datenschutz#kontaktdaten-klassenlisten-telefonnummern):
 welche Felder es gibt, wie die Freigabe an eine Klasse funktioniert, wie man
 alles auf einen Knopfdruck wieder löscht.
-
-Der Vergleich lautet also: besser als heute. Er lautet nicht: sicher.
 
 ### Was daraus später einmal werden könnte
 
@@ -145,7 +136,7 @@ und es erscheint eine Anmeldeseite. Sie haben drei Möglichkeiten:
 Der dritte Weg bleibt immer offen. Niemand muss sich ein Konto bei einem
 großen Anbieter zulegen, um an die Unterlagen der eigenen Klasse zu kommen.
 Was bei einer Anmeldung über Google oder GitHub übertragen wird und was
-nicht, steht im [Datenschutz-Teil](/docs/datenschutz#was-passiert-wenn-ich-mich-mit-google-oder-github-anmelde).
+nicht, steht im [Datenschutz-Teil](/docs/datenschutz#anmeldung-mit-google-oder-github).
 
 Ihr Zugang gilt anschließend für alles: Haben Sie Kinder in zwei der
 beteiligten Klassen, sehen Sie mit derselben Anmeldung beide Seiten. Zwei
@@ -167,15 +158,13 @@ Zwei Dinge vorweg, weil sie oft überraschen:
   wiedererkannt oder weiterverkauft.
 - **Von Ihnen liegt dort nur, was gebraucht wird**: Ihr Zugang, Ihre
   Zugehörigkeit zur Klasse und die Adresse für den Klassenverteiler. Das
-  steht in einer Datenbank auf dem Server, aus der es sich auch wieder
-  löschen lässt — und ausdrücklich nicht in der Versionsverwaltung, aus der
-  man nichts mehr herausbekommt. Warum diese Trennung entscheidend ist,
-  steht im
-  [Datenschutz-Teil](/docs/datenschutz#warum-diese-trennung-so-wichtig-ist).
-- **Anschrift und Telefonnummer gehören nicht dazu.** Dafür entsteht eine
-  eigene Seite, das Kontaktbuch der Klasse. Warum es das geben soll und was
-  es für Ihre Angaben ändern würde, steht oben unter
-  [Warum soll es ein Kontaktbuch geben?](#warum-soll-es-ein-kontaktbuch-geben)
+  steht in einer Datenbank auf dem Server, getrennt von den Unterlagen, und
+  lässt sich dort jederzeit löschen. Kurz steht das auch im
+  [Datenschutz-Teil](/docs/datenschutz#was-liegt-wo).
+- **Anschrift und Telefonnummer stehen nicht dort.** Dafür gibt es eine
+  eigene Seite, das Kontaktbuch der Klasse. Warum es das gibt und was es für
+  Ihre Angaben ändert, steht oben unter
+  [Warum es ein Kontaktbuch gibt](#warum-es-ein-kontaktbuch-gibt)
 
 ## Wer kann meine Sachen sehen?
 
@@ -212,15 +201,14 @@ nichts tun; die Termine kommen wie bisher.
 Dann wird Ihr Zugang gelöscht, und Sie kommen nicht mehr hinein. Weil es nur
 einen Zugang gibt und nicht fünf, ist das ein Vorgang und keine Suchaktion.
 Details dazu stehen unter
-[Löschung](/docs/datenschutz#was-passiert-mit-den-daten-wenn-eine-familie-geht).
+[Löschung](/docs/datenschutz#wenn-eine-familie-geht).
 
 ## Ich finde das gut. Was kann ich tun?
 
 Reden Sie darüber — nicht mit uns, sondern mit der Schule. Mit der
 Schulleitung, mit dem Kollegium, mit dem Vorstand.
 
-Wir können dieses Projekt als Eltern bauen und eine Weile betreiben. Wir
-können es nicht auf Dauer verantworten: Eltern ziehen weiter, wenn ihre
-Kinder die Schule verlassen. Damit daraus etwas Bleibendes für die ganze
-Schule wird, muss es die Schule wollen. Ihre Stimme zählt dabei mehr als
-unsere.
+Der Betrieb ist auf Dauer angelegt und läuft weiter, ob die Schule ihn
+übernimmt oder nicht. Damit aber die ganze Schule etwas davon hat und nicht
+nur die Klassen, die zufällig mitmachen, braucht es die Schule — und dafür
+zählt Ihre Stimme mehr als unsere.

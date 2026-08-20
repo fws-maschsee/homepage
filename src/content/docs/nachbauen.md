@@ -76,13 +76,9 @@ vergessen zu setzen; eine Struktur nicht.
 erhalten. Und wenn das ganze System morgen verschwände, blieben die Inhalte
 lesbar.
 
-**Personenbezogene Daten ausdrücklich NICHT in die Versionsverwaltung.** Die
-wichtigste Regel von allen. Was einmal in einer Versionsgeschichte steht,
-bekommt man praktisch nicht mehr heraus — es steckt in der Historie, in
-jeder Kopie, in den Sicherungen. Mit dem Recht auf Löschung ist das
-unvereinbar. Personenbezogene Daten gehören in eine Datenbank, aus der man
-sie löschen kann. Ausführlich steht das im
-[Datenschutz-Abschnitt](/docs/datenschutz#warum-diese-trennung-so-wichtig-ist).
+**Personenbezogene Daten in die Datenbank, nicht ins Archiv.** Getrennt vom
+Code und von den Unterlagen — so bleiben sie jederzeit löschbar. Kurz steht
+das auch im [Datenschutz-Abschnitt](/docs/datenschutz#was-liegt-wo).
 
 **GitOps statt Handarbeit auf dem Server.** Kostet am Anfang mehr. Zahlt sich
 in dem Moment aus, in dem jemand anders übernehmen soll — und dieser Moment
@@ -126,15 +122,15 @@ Niemand merkt es, bis Termine fehlen.
 
 **Klären Sie früh, wem das gehört.**
 
-Ein Elternprojekt hat ein eingebautes Ablaufdatum: Die Kinder werden fertig,
-die Eltern gehen. Wenn bis dahin nicht geklärt ist, wer den Betrieb
-übernimmt, steht die Schulgemeinschaft eines Tages vor einem Dienst, den alle
-benutzen und niemand verantwortet.
+Nicht, weil ein Elternprojekt ablaufen müsste — dieses hier ist auf Dauer
+angelegt und wird auch dann weiterbetrieben, wenn die eigenen Kinder die
+Schule verlassen haben. Sondern weil ein Dienst, den alle benutzen, jemanden
+braucht, der ihn erklärtermaßen verantwortet, und weil zwei Leute, die es
+können, besser sind als einer.
 
 Machen Sie von Anfang an unmissverständlich klar, dass es kein Angebot der
 Schule ist — im Namen, in der Adresse, auf jeder Seite. Und suchen Sie
-parallel das Gespräch mit denen, die es einmal übernehmen könnten. Nicht
-erst, wenn es fertig ist.
+parallel das Gespräch mit denen, die es später einmal übernehmen könnten.
 
 Fragen? [Schreiben Sie uns.](/kontakt) Auf Fragen von anderen Schulen
 antworten wir gern und ausführlich.

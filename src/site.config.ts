@@ -48,6 +48,16 @@ export const TEMPLATE_URL =
 export const CONTACT_NAME = 'Levin Keller'
 export const CONTACT_MAIL = 'post@levinkeller.de'
 
+/**
+ * Die ladungsfaehige Anschrift der Anbieterkennzeichnung nach Paragraph 5 DDG.
+ * Sie steht auf der Kontaktseite und im Fuss JEDER Seite — dieselbe Zeile, die
+ * die Klassenseiten und `konto` schon fuehren, damit ueberall dasselbe steht.
+ */
+export const CONTACT_ADDRESS = 'Hohenzollerndamm 152, 14199 Berlin'
+
+/** Anbieterkennzeichnung in einer Zeile, fuer den Fuss jeder Seite. */
+export const BETREIBER = `${CONTACT_NAME}, ${CONTACT_ADDRESS}`
+
 /** Zentraler Anmeldedienst (ZITADEL). */
 export const IDENTITY_URL = 'https://id.fws-maschsee-test.de'
 

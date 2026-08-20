@@ -68,9 +68,9 @@ Für die Inhalte die Eltern, die sie schreiben. Für den Betrieb der Technik
 derzeit eine Privatperson: [Levin Keller](/kontakt). **Nicht die Schule** —
 die Schule hat dieses Projekt weder beauftragt noch geprüft.
 
-Genau das ist der Punkt, an dem wir es gerne ändern würden: Wenn die Schule
-das Projekt übernimmt, wandert diese Verantwortung dorthin, wo sie
-hingehört. Was das für die Schule bedeutet, steht [im Abschnitt für
+Der Betrieb ist auf Dauer angelegt und braucht keine Übernahme, um
+weiterzulaufen. Die Schule kann ihn trotzdem übernehmen — dann liegt die
+Verantwortung bei ihr. Was das bedeutet, steht [im Abschnitt für
 Schulleitung, Vorstand und Geschäftsführung](/docs/schule).
 
 ## Ich finde es sinnvoll — und jetzt?

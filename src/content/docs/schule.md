@@ -12,7 +12,8 @@ unterschreiben müssen. Er ist deshalb nüchtern und beantwortet die Fragen,
 die aus dieser Richtung kommen: was es kostet, was es an Arbeit macht, wie
 eine Übernahme abliefe und wie man wieder herauskäme.
 
-**Die Schule könnte das übernehmen.** Wir zeigen den laufenden Betrieb,
+**Die Schule kann das übernehmen — muss es aber nicht.** Der Betrieb ist auf
+Dauer angelegt und läuft auch ohne Übernahme weiter. Wir zeigen den laufenden Betrieb,
 erklären, was er braucht, und übergeben vollständig. Levin Keller begleitet
 die Übernahme.
 
@@ -56,12 +57,13 @@ beauftragt noch geprüft, und darum steht `-test` in der Adresse, solange das
 so ist.
 
 Datenschutzrechtlich wäre die Schule bei einer Übernahme **Verantwortliche**
-im Sinne der DSGVO. Was dafür fehlt, steht ungeschönt am Ende des
-[Datenschutz-Abschnitts](/docs/datenschutz#was-fehlt-noch--ehrlich): eine
-automatische Datensicherung — es gibt derzeit keine —, ein unterschriebener
-Auftragsverarbeitungsvertrag mit dem Anbieter, ein abgenommenes Sicherungs-
-und Löschkonzept, ein Verzeichnis von Verarbeitungstätigkeiten, eine
-förmliche Datenschutzerklärung.
+im Sinne der DSGVO. Was heute dafür steht, steht offen da: die
+[Datenschutzerklärung](/docs/datenschutzerklaerung) mit Zwecken,
+Rechtsgrundlagen, Empfängern und Speicherdauern, der
+Auftragsverarbeitungsvertrag mit dem Server-Anbieter, ein Löschknopf für
+jede Person. Was mit einer Übernahme dazukommt, ist das, was nur die Schule
+selbst führen kann: das Verzeichnis von Verarbeitungstätigkeiten ihrer
+eigenen Stelle und die Einbindung ihrer Datenschutzbeauftragten.
 
 ## Was passiert, wenn die Eltern weg sind, die das gebaut haben?
 
@@ -167,7 +169,7 @@ wieder herauskommt, muss man nicht mit Vorsicht betreten.
   Es geht dabei nicht nur um Protokolle und Unterlagen: Dazu kämen
   Kontaktdaten, die Eltern selbst eintragen und je Klasse selbst freigeben
   (siehe
-  [Datenschutz](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern)).
+  [Datenschutz](/docs/datenschutz#kontaktdaten-klassenlisten-telefonnummern)).
 - **Erwartungen.** Sobald es ein Angebot der Schule ist, erwarten Eltern,
   dass es funktioniert, und melden sich, wenn nicht. Das ist der Preis dafür,
   dass es genutzt wird.

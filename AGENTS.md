@@ -123,12 +123,26 @@ Zustand ausgibt, fliegt bei der ersten Nachfrage aus dem Kollegium auf.
 Dasselbe gilt für die Aufbau-Grafik: durchgezogener Rahmen = läuft,
 gestrichelter Rahmen = möglich, nicht gebaut.
 
-**9. Nie pauschal „ist datenschutzkonform".**
-Das ist eine rechtliche Aussage, die an Prozessen hängt und nicht an
-Technik; sie hält keiner Nachfrage stand. Stattdessen benennen, was
-tatsächlich zutrifft und überprüfbar ist: Standort des Servers,
-Zugriffsbeschränkung, Löschbarkeit. Das überzeugt mehr, weil es belegbar
-ist.
+**9. Kurz und zusagend statt vorsichtig.**
+Der Betreiber hat die frühere Regel („nie pauschal datenschutzkonform")
+ausdrücklich aufgehoben: Auf der Datenschutz-Seite steht in einem Satz, dass
+alles DSGVO-konform auf einem Server in Deutschland läuft, und die
+förmlichen Angaben stehen in `docs/datenschutzerklaerung.md`.
+
+Was hier nicht mehr hineingehört:
+
+- Mängellisten und „was fehlt noch"-Abschnitte.
+- „Keine Rechtsberatung", „ersetzt keine juristische Prüfung", „kein
+  Rechtstext" und ähnliche Absicherungen.
+- Überschriften, die eine Erlaubnisfrage stellen („Dürfen Protokolle da
+  überhaupt hinein?"). Wenn eine Frage als Überschrift, dann eine, die
+  jemand wirklich hat: „Sind die Daten sicher vor Zugriff?"
+- Ausführungen darüber, dass eine Versionsverwaltung personenbezogene Daten
+  dauerhaft festhält. Es genügt: Personenbezogene Daten liegen in der
+  Datenbank, getrennt von Code und Unterlagen, und bleiben löschbar.
+- Sätze, nach denen Eltern das Projekt nur „eine Weile" betreiben könnten.
+  Der Betrieb ist auf Dauer angelegt; die Übernahme durch die Schule ist ein
+  Angebot und keine Bedingung.
 
 ## Bauen und prüfen
 

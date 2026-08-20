@@ -198,13 +198,14 @@ Anwendungen, die Schüler:innen selbst schreiben und über denselben Weg
 tatsächlich in Betrieb nehmen, mit echter Anmeldung und echten Nutzern.
 
 **Der Sonderfall Kontaktdaten.** Anschriften und Telefonnummern gehen über
-das hinaus, was heute in der Datenbank des Anmeldedienstes steht. Sie kämen
-deshalb nicht in eine der bestehenden Anwendungen, sondern in einen eigenen
-Dienst mit eigener Datenbank: Jede Person pflegte dort ausschließlich ihre
-eigenen Angaben und gäbe sie je Klasse frei. Die Sichtbarkeit entstünde bei
-jedem Aufruf aus den aktuellen Zugehörigkeiten im Anmeldedienst und nicht
-aus einer gespeicherten Liste — wer die Klasse verlässt, verschwände damit
-ohne Aufräumvorgang. Nichts davon ginge über AWS SES oder Cloudflare, weil
-dieser Dienst nichts verschickt und nichts weiterreicht. Was das für
-Löschung, Sicherung und Auftragsverarbeitungsvertrag bedeutet, steht im
-[Datenschutz-Abschnitt](/docs/datenschutz#und-kontaktdaten-klassenlisten-telefonnummern).
+das hinaus, was in der Datenbank des Anmeldedienstes steht. Sie liegen
+deshalb nicht in einer der bestehenden Anwendungen, sondern in einem eigenen
+Dienst mit eigener Datenbank — dem Kontaktbuch, erreichbar unter
+[konto.fws-maschsee-test.de](https://konto.fws-maschsee-test.de). Jede Person
+pflegt dort ausschließlich ihre eigenen Angaben und gibt sie je Klasse frei.
+Die Sichtbarkeit entsteht bei jedem Aufruf aus den aktuellen Zugehörigkeiten
+im Anmeldedienst und nicht aus einer gespeicherten Liste — wer die Klasse
+verlässt, verschwindet damit ohne Aufräumvorgang. Nichts davon geht über AWS
+SES oder Cloudflare, weil dieser Dienst nichts verschickt und nichts
+weiterreicht. Kurz steht das auch im
+[Datenschutz-Abschnitt](/docs/datenschutz#kontaktdaten-klassenlisten-telefonnummern).

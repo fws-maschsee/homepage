@@ -8,7 +8,7 @@ import {
 import shipyardDocs from '@levino/shipyard-docs'
 import { defineConfig } from 'astro/config'
 import { remarkAdmonitionLabels } from './plugins/remark-admonition-labels.mjs'
-import { PROJECT_NAME, REPO_URL, SITE_URL } from './src/site.config'
+import { BETREIBER, PROJECT_NAME, REPO_URL, SITE_URL } from './src/site.config'
 
 export default defineConfig({
 	site: SITE_URL,
@@ -56,12 +56,22 @@ export default defineConfig({
 				textColor: 'oklch(var(--wac))',
 				isCloseable: false,
 			},
+			// Anbieterkennzeichnung im Fuss JEDER Seite, nicht nur auf der
+			// Kontaktseite: Wer sie sucht, sucht sie unten, und ein Besucher
+			// landet ueber eine Suchmaschine mitten im Text und nicht auf der
+			// Startseite.
+			footer: { copyright: BETREIBER },
+			// NUR DREI EINTRAEGE, und das ist eine Korrektur: Vorher standen
+			// hier alle Unterseiten der Dokumentation. Auf jeder /docs-Seite
+			// rendert shipyard-docs links ohnehin die vollstaendige
+			// Seitenleiste — das Menue stand damit zweimal auf dem Bildschirm,
+			// oben und links, mit denselben Zielen. Die Leiste oben fuehrt
+			// deshalb nur noch IN die Dokumentation hinein; welche Kapitel es
+			// gibt, sagt die Seitenleiste.
 			navigation: {
 				start: { label: 'Überblick', href: '/' },
-				eltern: { label: 'Für Eltern', href: '/docs/eltern' },
+				docs: { label: 'Dokumentation', href: '/docs' },
 				datenschutz: { label: 'Datenschutz', href: '/docs/datenschutz' },
-				schule: { label: 'Für die Schule', href: '/docs/schule' },
-				technik: { label: 'Technik', href: '/docs/technik' },
 				kontakt: { label: 'Kontakt', href: '/kontakt' },
 			},
 		}),
