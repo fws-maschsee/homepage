@@ -129,7 +129,7 @@ auf den Klassenseiten steht.
 
 ## Wie eine Klassenseite gebaut ist
 
-**Astro 5** mit **`@levino/shipyard-base`** und **`@levino/shipyard-docs`**,
+**Astro 6** mit **`@levino/shipyard-base`** und **`@levino/shipyard-docs`**,
 serverseitig gerendert über den Node-Adapter. Inhalte sind Markdown-Dateien
 im Archiv der jeweiligen Klasse.
 

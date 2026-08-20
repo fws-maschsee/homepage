@@ -1,0 +1,26 @@
+/*
+ * Der CSS-Einstieg dieser Seite — und die einzige Datei, deren Fehler kein
+ * Build meldet: Fehlt hier eine Zeile, läuft `astro build` durch und die Seite
+ * sieht völlig unformatiert aus. Weder `astro check` noch irgendein Test sagen
+ * etwas dazu.
+ *
+ * Seit shipyard 0.7 liefert das Paket kein Tailwind-Setup mehr mit; das CSS
+ * der Seite besteht ausschließlich aus dem, was hier steht. Und seit
+ * Tailwind 4 steht die Konfiguration hier statt in einer
+ * `tailwind.config.mjs` — die gibt es nicht mehr.
+ */
+
+@import "tailwindcss";
+
+/*
+ * Komponentenstile UND die `@source`-Zeilen der shipyard-Pakete: jedes Paket
+ * liefert seine eigenen Quellpfade in seiner `index.css` mit, aufgelöst über
+ * die `style`-Bedingung seines `exports`-Felds. Deshalb hier keine Pfade von
+ * Hand — und deshalb KEIN `@source "@levino/shipyard-base"`: `@source` löst
+ * keine Paketnamen auf und meldet das auch nicht.
+ */
+@import "@levino/shipyard-base";
+@import "@levino/shipyard-docs";
+
+@plugin "daisyui";
+@plugin "@tailwindcss/typography";

@@ -37,7 +37,7 @@ braucht, und richtet den Rest ein:
 - **Die Vorlage für eine Klassenseite:**
   [github.com/fws-maschsee/klassen-website-template](https://github.com/fws-maschsee/klassen-website-template)
   — eine Copier-Vorlage. Daraus entsteht in Minuten eine fertige Klassenseite:
-  Astro 5, Shipyard, geschützte Inhalte, Bau- und Auslieferungsautomatik,
+  Astro 6, Shipyard, geschützte Inhalte, Bau- und Auslieferungsautomatik,
   fertige Kubernetes-Manifeste.
 - **Die Organisation mit allem Übrigen:**
   [github.com/fws-maschsee](https://github.com/fws-maschsee)

@@ -159,10 +159,23 @@ Größe Zeremonie.
 ## Versionen sind gepinnt, und zwar mit Grund
 
 Die `@levino/*`-Pakete stehen auf **exakten** Versionen, nicht auf `"*"` oder
-`"^"`. shipyard 0.8.x setzt Astro 6 voraus; löst npm frei auf, bricht der Bau
-mit `Rollup failed to resolve import "virtual:shipyard/css"` — einer Meldung,
-die in eine ganz andere Richtung zeigt. Ein Sprung auf shipyard 0.8 ist ein
-bewusster Schritt zusammen mit Astro 6.
+`"^"`. Sie hängen mit `astro`, `tailwindcss` und `daisyui` zu einem Satz
+zusammen, der nur gemeinsam aufgeht: shipyard 0.8.5 verlangt `astro ^6.1.6`
+— deshalb Astro **6.4.8 und nicht 7** — und setzt Tailwind 4 mit daisyUI 5
+voraus. Löst npm eine dieser Versionen frei auf, bricht der Bau an einer
+Stelle, die in eine ganz andere Richtung zeigt, etwa mit
+`Rollup failed to resolve import "virtual:shipyard/css"`. Ein Sprung auf die
+nächste Hauptversion ist immer ein bewusster Schritt für alle vier Pakete
+zusammen.
+
+Seit Tailwind 4 gibt es **keine `tailwind.config.mjs`** und **keine
+Integration `@astrojs/tailwind`** mehr. Die Konfiguration steht in
+`src/styles/app.css` (`@import "tailwindcss"; @plugin "daisyui";`), das
+Vite-Plugin `@tailwindcss/vite` hängt sie in `astro.config.mjs` ein, und
+shipyard bekommt den Pfad über `css: appCss` — importiert mit `?url`, weil
+shipyard den Pfad braucht und nicht den Inhalt. Fehlt dieser Wert, rendert
+die Seite ohne ein einziges Stylesheet, und weder `astro build` noch
+`astro check` melden es.
 
 `html-escaper` steht als Produktions-Abhängigkeit im `package.json`, obwohl
 der Code es nie importiert. Ohne diesen Eintrag verschwindet es im Image unter
@@ -179,7 +192,8 @@ src/pages/kontakt.astro         Kontakt und Anbieterangaben
 src/components/Architektur.astro  Aufbau-Grafik als Inline-SVG
 src/content/docs/*.md           alle Langtexte
 src/site.config.ts              Namen, Domains, Adressen — zentral
-astro.config.mjs                Navigation und Hinweisbalken
+src/styles/app.css              der CSS-Einstieg: Tailwind 4, daisyUI 5
+astro.config.mjs                Navigation, Hinweisbalken, Besucherzählung
 deploy/                         K8s-Manifeste; gehören nach server-config
 ```
 

@@ -1,13 +1,8 @@
 import node from '@astrojs/node'
-import tailwind from '@astrojs/tailwind'
 import shipyard from '@levino/shipyard-base'
-import {
-	remarkAdmonitions,
-	remarkDirective,
-} from '@levino/shipyard-base/remark'
 import shipyardDocs from '@levino/shipyard-docs'
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import { plausible } from './plugins/plausible.mjs'
 import { remarkAdmonitionLabels } from './plugins/remark-admonition-labels.mjs'
 import {
 	BETREIBER,
@@ -16,6 +11,7 @@ import {
 	SITE_DOMAIN,
 	SITE_URL,
 } from './src/site.config'
+import appCss from './src/styles/app.css?url'
 
 export default defineConfig({
 	site: SITE_URL,
@@ -34,21 +30,35 @@ export default defineConfig({
 	adapter: node({
 		mode: 'standalone',
 	}),
+	// `@tailwindcss/vite` steht HIER und nicht in einer Astro-Integration:
+	// Seit Tailwind 4 gibt es `@astrojs/tailwind` nicht mehr, und das
+	// Vite-Plugin sieht nur die CSS-Dateien des Projekts, in dessen
+	// Vite-Konfiguration es steht.
+	vite: { plugins: [tailwindcss()] },
 	markdown: {
-		// Admonitions im Docusaurus-Stil (:::note, :::tip, :::info, :::warning,
-		// :::danger). Die Reihenfolge ist bindend: remarkAdmonitionLabels muss
-		// zwischen remarkDirective und remarkAdmonitions laufen.
-		remarkPlugins: [remarkDirective, remarkAdmonitionLabels, remarkAdmonitions],
+		// NUR die Beschriftung der Admonitions. Den Direktiven-Parser und
+		// `remarkAdmonitions` setzt shipyard-base seit 0.7 selbst; ein zweiter
+		// Eintrag wäre eine zweite Wahrheit über eine Liste, die shipyard
+		// pflegt — und er brächte den in 0.8.1 abgestellten Fehler zurück, bei
+		// dem der Gender-Doppelpunkt („Elternvertreter:in") als Inline-Direktive
+		// zerfällt.
+		//
+		// Dass dieser Eintrag in `defineConfig` steht, ist die Bedingung dafür,
+		// dass er VOR shipyards `remarkAdmonitions` läuft: Astro hängt die
+		// Plugins der Integrationen hinten an. Sonst stünde über jeder
+		// Admonition „Warning" statt „WICHTIG".
+		remarkPlugins: [remarkAdmonitionLabels],
 	},
 	integrations: [
-		plausible({
-			domain: SITE_DOMAIN,
-			src: 'https://analytics.levinkeller.de/js/script.js',
-		}),
-		tailwind({
-			applyBaseStyles: false,
-		}),
 		shipyard({
+			// Das Tailwind-Setup steckt seit Tailwind 4 nicht mehr in einer
+			// Integration, sondern in dieser einen Zeile: shipyard hängt die
+			// Datei über `virtual:shipyard/css` ein, und sie ist die einzige
+			// Quelle des CSS. `?url` ist Pflicht — shipyard braucht den PFAD,
+			// nicht den Inhalt. Fehlt der Wert, rendert die Seite ohne ein
+			// einziges Stylesheet, und weder `astro build` noch `astro check`
+			// melden es.
+			css: appCss,
 			brand: PROJECT_NAME,
 			title: PROJECT_NAME,
 			tagline: 'Ein privates Elternprojekt',
@@ -61,19 +71,18 @@ export default defineConfig({
 					'<strong>Kein offizielles Angebot der Freien Waldorfschule Hannover-Maschsee.</strong> Privat von Eltern betrieben, von der Schule weder beauftragt noch geprüft.',
 				backgroundColor: 'warning',
 				// Nicht 'base-content': das ist im dunklen Farbschema ein helles
-				// Grau und stünde dann hellgrau auf gelb. `--wac` ist die von
-				// daisyUI für Warnflächen vorgesehene Schriftfarbe und in beiden
-				// Farbschemata schwarz.
-				textColor: 'oklch(var(--wac))',
+				// Grau und stünde dann hellgrau auf gelb. `--color-warning-content`
+				// ist die von daisyUI für Warnflächen vorgesehene Schriftfarbe und
+				// in beiden Farbschemata dunkel. (In daisyUI 4 hiess dieselbe
+				// Angabe `oklch(var(--wac))`; seit 5 tragen die Variablen
+				// vollständige Farbwerte und sprechende Namen.)
+				textColor: 'var(--color-warning-content)',
 				isCloseable: false,
 			},
-			// Anbieterkennzeichnung im Fuss JEDER Seite. WIRKT NOCH NICHT:
-			// shipyard 0.6.1 rendert einen fest eingebauten Fuss („© Levin
-			// Keller, 2025") und wertet diese Angabe nicht aus; ab 0.7.x tut
-			// es das, wie in den Klassenseiten zu sehen. Der Sprung dorthin
-			// verlangt daisyUI 5 und Tailwind 4 und ist ein eigener Schritt.
-			// Bis dahin traegt die Anschrift die Kontaktseite, und die steht
-			// als „Impressum & Kontakt" in der Leiste ueber jeder Seite.
+			// Anbieterkennzeichnung im Fuss JEDER Seite — dieselbe Zeile, die
+			// die Klassenseiten und `konto` fuehren. Sie steht deshalb hier und
+			// nicht auf der Kontaktseite allein: Wer die Seite verantwortet,
+			// gehoert auf jede Seite und nicht auf eine.
 			footer: { copyright: BETREIBER },
 			// NUR DREI EINTRAEGE, und das ist eine Korrektur: Vorher standen
 			// hier alle Unterseiten der Dokumentation. Auf jeder /docs-Seite
@@ -88,6 +97,26 @@ export default defineConfig({
 				datenschutz: { label: 'Datenschutz', href: '/docs/datenschutz' },
 				kontakt: { label: 'Impressum & Kontakt', href: '/kontakt' },
 			},
+			// Die Besucherzaehlung. shipyard schreibt das Tag selbst in den
+			// Kopf jeder Seite. Bis 0.6 gab es dieses Feld nicht; das Skript
+			// hing bis zum Umstieg auf 0.8 an einer eigenen Integration, die
+			// per `injectScript('head-inline')` ein Skript-Tag nachbaute.
+			// Dieser Notbehelf ist weg — wer ihn in der Versionsgeschichte
+			// wiederfindet, braucht ihn nicht zurueckzuholen.
+			//
+			// WAS DABEI NICHT ENTSTEHT: kein Cookie, kein Wiedererkennungswert,
+			// kein Profil. Plausible laeuft auf einem eigenen Server; die
+			// Zaehlung ist der Grund, warum diese Seite ohne
+			// Einwilligungsbanner auskommt.
+			scripts: [
+				{
+					src: 'https://analytics.levinkeller.de/js/script.js',
+					defer: true,
+					// Muss der Domain entsprechen, unter der die Seite in
+					// Plausible angelegt ist.
+					'data-domain': SITE_DOMAIN,
+				},
+			],
 		}),
 		shipyardDocs({
 			// Führt auf der fertigen Seite direkt zum Bearbeiten-Formular auf

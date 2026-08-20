@@ -16,12 +16,19 @@
 		"Wer hier einen Login einbaut, sperrt genau die Leute aus, fuer die die",
 		"Seite geschrieben ist.",
 		"",
-		"Die @levino/*-Pakete sind auf exakte Versionen GEPINNT, nicht auf \"*\"",
-		"oder \"^\". Grund: shipyard 0.8.x setzt Astro 6 voraus. Loest npm die",
-		"Version neu auf, zieht es 0.8.x, und der Build bricht mit",
-		"'Rollup failed to resolve import \"virtual:shipyard/css\"'. Ein Update",
-		"auf shipyard 0.8 ist ein bewusster Schritt zusammen mit Astro 6, kein",
-		"Nebeneffekt eines npm install.",
+		"Die @levino/*-Pakete stehen auf EXAKTEN Versionen, nicht auf \"*\" oder",
+		"\"^\". Sie haengen mit astro, tailwindcss und daisyui zu einem Satz",
+		"zusammen: shipyard 0.8.5 verlangt astro ^6.1.6 (deshalb 6.4.8 und NICHT",
+		"7) und setzt Tailwind 4 mit daisyUI 5 voraus. Loest npm eine dieser",
+		"Versionen frei auf, bricht der Bau an einer Stelle, die in eine ganz",
+		"andere Richtung zeigt — etwa mit",
+		"'Rollup failed to resolve import \"virtual:shipyard/css\"'. Ein Sprung",
+		"auf die naechste Hauptversion ist hier immer ein bewusster Schritt fuer",
+		"alle vier Pakete zusammen, kein Nebeneffekt eines npm install.",
+		"",
+		"Seit Tailwind 4 gibt es KEINE tailwind.config.mjs und KEINE Integration",
+		"@astrojs/tailwind mehr. Die Konfiguration steht in src/styles/app.css,",
+		"eingehaengt ueber @tailwindcss/vite in astro.config.mjs.",
 		"",
 		"html-escaper steht hier als PRODUKTIONS-Abhaengigkeit, obwohl der Code",
 		"es nie importiert. Astro braucht html-escaper@^3 zur Laufzeit. Ohne",
@@ -34,15 +41,15 @@
 	],
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
-		"@astrojs/node": "^9.0.0",
-		"@astrojs/tailwind": "^6.0.2",
-		"@levino/shipyard-base": "0.6.1",
-		"@levino/shipyard-docs": "0.6.2",
-		"@tailwindcss/typography": "^0.5.15",
-		"astro": "^5.16.0",
-		"daisyui": "^4.12.0",
+		"@astrojs/node": "10.1.4",
+		"@levino/shipyard-base": "0.8.5",
+		"@levino/shipyard-docs": "0.8.5",
+		"@tailwindcss/typography": "^0.5.20",
+		"@tailwindcss/vite": "4.3.3",
+		"astro": "6.4.8",
+		"daisyui": "5.7.19",
 		"html-escaper": "^3.0.3",
-		"tailwindcss": "^3.4.0"
+		"tailwindcss": "4.3.3"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.4",
@@ -50,6 +57,6 @@
 		"typescript": "^5.8.2"
 	},
 	"engines": {
-		"node": ">=22.0"
+		"node": ">=22.12"
 	}
 }

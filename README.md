@@ -115,7 +115,7 @@ Ausführlich in [`deploy/README.md`](deploy/README.md).
 
 ## Der Unterschied zu den Klassenseiten
 
-Diese Seite verwendet denselben Baukasten wie die Klassenseiten (Astro 5,
+Diese Seite verwendet denselben Baukasten wie die Klassenseiten (Astro 6,
 `@levino/shipyard-base`) — mit **einem** wesentlichen Unterschied: Sie hat
 **keine Auth-Middleware**. Kein PocketBase, kein ZITADEL davor, kein
 `src/middleware.ts`.
