@@ -136,8 +136,7 @@ Einwilligung können Sie jederzeit widerrufen.
 Zwei dieser Rechte müssen Sie nicht beantragen: Im Kontaktbuch zeigt Ihnen
 eine Seite alles, was über Sie gespeichert ist, und ein Knopf daneben löscht
 es vollständig. Für alles Übrige genügt eine Mail an
-[post@levinkeller.de](mailto:post@levinkeller.de). Sie bekommen eine Antwort,
-und Sie bekommen sie ohne Diskussion darüber, ob Ihr Anliegen berechtigt ist.
+[post@levinkeller.de](mailto:post@levinkeller.de).
 
 Beschweren können Sie sich außerdem bei einer Aufsichtsbehörde, für den
 Verantwortlichen zuständig ist die Berliner Beauftragte für Datenschutz und

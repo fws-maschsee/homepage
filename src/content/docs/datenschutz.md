@@ -83,5 +83,4 @@ Schule — sie hat das Projekt weder beauftragt noch geprüft. Der Betrieb ist
 auf Dauer angelegt.
 
 Fragen, Auskunft, Löschung:
-[post@levinkeller.de](mailto:post@levinkeller.de). Sie bekommen eine Antwort,
-und Sie bekommen sie ohne Diskussion darüber, ob Ihr Anliegen berechtigt ist.
+[post@levinkeller.de](mailto:post@levinkeller.de). Sie bekommen eine Antwort.
