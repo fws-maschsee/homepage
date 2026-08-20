@@ -13,8 +13,8 @@ ausführlich unter [Datenschutz](/docs/datenschutz).
 
 ## Verantwortlicher
 
-Levin Keller
-Hohenzollerndamm 152, 14199 Berlin
+Levin Keller  
+Hohenzollerndamm 152, 14199 Berlin  
 [post@levinkeller.de](mailto:post@levinkeller.de)
 
 Privatperson und Vater an der Freien Waldorfschule Hannover-Maschsee. Die
