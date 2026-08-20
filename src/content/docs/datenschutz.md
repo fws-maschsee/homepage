@@ -8,8 +8,13 @@ sidebar:
 
 **Alles läuft DSGVO-konform auf einem Server in Deutschland** — bei netcup in
 Nürnberg, mit Auftragsverarbeitungsvertrag. Jede Verbindung ist
-verschlüsselt. Es gibt keine Werbung, kein Tracking, keine Weitergabe an
-Dritte und deshalb auch kein Cookie-Banner.
+verschlüsselt. Es gibt keine Werbung, keine Weitergabe an Dritte und kein
+Cookie-Banner.
+
+Gezählt wird, wie oft eine Seite aufgerufen wird — mit Plausible, das auf
+einem eigenen Server in Deutschland läuft. Ohne Cookies, ohne
+Wiedererkennung, ohne Profile: Die Zählung weiß, dass eine Seite aufgerufen
+wurde, und nicht, von wem.
 
 Die förmlichen Angaben — Verantwortlicher, Zwecke, Rechtsgrundlagen,
 Empfänger, Speicherdauer, Ihre Rechte — stehen in der

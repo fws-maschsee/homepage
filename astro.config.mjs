@@ -7,8 +7,15 @@ import {
 } from '@levino/shipyard-base/remark'
 import shipyardDocs from '@levino/shipyard-docs'
 import { defineConfig } from 'astro/config'
+import { plausible } from './plugins/plausible.mjs'
 import { remarkAdmonitionLabels } from './plugins/remark-admonition-labels.mjs'
-import { BETREIBER, PROJECT_NAME, REPO_URL, SITE_URL } from './src/site.config'
+import {
+	BETREIBER,
+	PROJECT_NAME,
+	REPO_URL,
+	SITE_DOMAIN,
+	SITE_URL,
+} from './src/site.config'
 
 export default defineConfig({
 	site: SITE_URL,
@@ -34,6 +41,10 @@ export default defineConfig({
 		remarkPlugins: [remarkDirective, remarkAdmonitionLabels, remarkAdmonitions],
 	},
 	integrations: [
+		plausible({
+			domain: SITE_DOMAIN,
+			src: 'https://analytics.levinkeller.de/js/script.js',
+		}),
 		tailwind({
 			applyBaseStyles: false,
 		}),

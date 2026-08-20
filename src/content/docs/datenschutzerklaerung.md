@@ -30,12 +30,28 @@ Artikel 37 DSGVO liegen nicht vor. Fragen beantwortet die Adresse oben.
 Beim Aufruf verarbeitet der Server die Verbindungsdaten, die jede
 Internetverbindung braucht: IP-Adresse, Zeitpunkt, aufgerufene Adresse,
 übermittelte Browserkennung. Ohne sie lässt sich keine Antwort zustellen.
-Diese Seite bindet keine Statistik, keine Werbenetzwerke und keine externen
-Schriften oder Skripte ein; es gibt nichts einzuwilligen und deshalb auch
-kein Cookie-Banner.
+Werbenetzwerke und externe Schriften bindet diese Seite nicht ein.
 
 Rechtsgrundlage: Artikel 6 Absatz 1 Buchstabe f DSGVO — der Betrieb einer
 technisch funktionierenden Seite.
+
+### Besucherzählung
+
+Diese Seite und die geschützten Klassenseiten zählen Seitenaufrufe mit
+**Plausible**. Die Software läuft auf einem eigenen Server des
+Verantwortlichen bei der Hetzner Online GmbH in Deutschland — nicht bei
+einem Analysedienst, und die Daten verlassen diesen Server nicht.
+
+Gezählt werden aufgerufene Seite, Verweisquelle, ungefähre Herkunft nach
+Land, Gerätetyp und Browser. **Es werden keine Cookies gesetzt**, keine
+Kennungen im Gerät gespeichert und keine Profile über einzelne Personen
+gebildet; die IP-Adresse wird nicht gespeichert. Ein Besuch lässt sich weder
+über mehrere Tage noch über mehrere Seiten hinweg einer Person zuordnen.
+
+Rechtsgrundlage: Artikel 6 Absatz 1 Buchstabe f DSGVO — zu wissen, ob und
+welche Seiten überhaupt gelesen werden. Weil dabei nichts im Gerät
+gespeichert oder ausgelesen wird, braucht es dafür keine Einwilligung nach
+Paragraph 25 TDDDG und kein Banner.
 
 ### Anmeldung und Zugang
 
@@ -103,6 +119,8 @@ verschwindet, schreibt an die Adresse oben; das wird gemacht.
   Namensauflösung der Domain.
 - **Google** oder **GitHub** — nur, wenn Sie sich für diesen Anmeldeweg
   entscheiden.
+- **Hetzner Online GmbH** — Betreiberin des Servers, auf dem die
+  Besucherzählung läuft.
 
 Darüber hinaus wird nichts weitergegeben. Nichts wird verkauft, vermietet
 oder für Werbung ausgewertet. Eine automatisierte Entscheidungsfindung oder
