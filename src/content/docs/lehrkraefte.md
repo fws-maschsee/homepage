@@ -65,9 +65,10 @@ Schulleitung, Vorstand und Geschäftsführung](/docs/schule).
 
 ## Ich finde es sinnvoll — und jetzt?
 
-Sagen Sie es im Kollegium und in Richtung Schulleitung und Vorstand. Eine
-Rückmeldung von Ihnen wiegt in dieser Frage schwerer als jede Erklärung von
-uns.
+Empfehlen Sie es Kolleginnen und Kollegen. Wer es für seine Klasse haben
+möchte, spricht die Elternvertretung dieser Klasse an — und die meldet sich
+bei uns. So entsteht eine Klassenseite: aus der Klasse heraus, getragen von
+Eltern, und nicht als etwas, das Ihnen jemand aufträgt.
 
 Und wenn Sie es **nicht** sinnvoll finden: Sagen Sie uns bitte, warum.
 Einwände aus dem Kollegium sind uns lieber als höfliches Schweigen — sie sind
