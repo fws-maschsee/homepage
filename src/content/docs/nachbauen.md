@@ -84,12 +84,6 @@ das auch im [Datenschutz-Abschnitt](/docs/datenschutz#was-liegt-wo).
 in dem Moment aus, in dem jemand anders übernehmen soll — und dieser Moment
 kommt bei einem Elternprojekt garantiert.
 
-**Domains nach der Klasse benennen, nicht nach der Lehrkraft.** Unsere
-Vorgänger-Domains trugen den Namen der Klassenlehrkraft. An einer
-Waldorfschule wechselt die Klassenlehrkraft; die Adresse aber steckt dann
-schon in Lesezeichen und Kalender-Abos und lässt sich nicht mehr ändern.
-Benennen Sie nach der Klasse.
-
 **Und auf einer öffentlichen Projektseite gar keine konkreten Klassen
 nennen.** Wer dort Klassennamen, Lehrkräfte und die Hostnamen der
 geschützten Seiten aufführt, gibt preis, welche Klasse welche Inhalte unter

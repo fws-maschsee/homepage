@@ -72,9 +72,8 @@ gemessen rund 850 MB aus. Eine zusätzliche Klassenseite belegt davon rund
 **50 MB** (gemessen 31 bis 59 MiB je Pod). Der Platz für weitere Klassen
 ergibt sich aus dieser Differenz, nicht aus einer Schätzung.
 
-**Fortbestand der alten Adressen.** Die früheren, nach der Klassenlehrkraft
-benannten Domains leiten dauerhaft weiter (HTTP 301), damit Lesezeichen und
-Kalender-Abos der Eltern nicht brechen.
+**Fortbestand der alten Adressen.** Frühere Domains leiten dauerhaft weiter
+(HTTP 301), damit Lesezeichen und Kalender-Abos der Eltern nicht brechen.
 
 ## GitOps — was das heißt
 

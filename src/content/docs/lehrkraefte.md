@@ -35,21 +35,11 @@ Antwort für alle nachlesbar an einer Stelle liegt, landen sie dort.
 
 ## Was bedeutet das für mich, wenn ich die Klasse abgebe?
 
-Nichts. Die Adresse der Klassenseite enthält bewusst **nicht** Ihren Namen
-mehr.
-
-Das ist eine Lehre aus dem Bestand: Die früheren Adressen der beiden
-Klassenseiten waren nach der Klassenlehrkraft benannt. An einer
-Waldorfschule wechselt die Klassenlehrkraft im Lauf der acht Jahre; dann
-stimmt die Adresse nicht mehr, und weil Eltern sie als Lesezeichen und
-Kalender-Abo gespeichert haben, kann man sie nicht einfach ändern.
-
-Die neuen Adressen heißen deshalb nach der Klasse und nicht nach der Person.
-Ein Wechsel der Klassenlehrkraft ist damit eine Änderung an genau einer
-Stelle — dem Anzeigenamen — und nicht mehr ein Umzug.
-
-Die alten Adressen leiten dauerhaft weiter, damit niemandes Lesezeichen
-bricht.
+Die Klasse behält ihre Seite. Sie ist nach der Klassenlehrkraft benannt,
+also heißt sie danach nach Ihrer Nachfolge — es sind dieselben Kinder,
+dieselbe Elternschaft, dieselben Inhalte. Umziehen muss dabei nichts, und
+alte Adressen leiten dauerhaft weiter, damit niemandes Lesezeichen und
+niemandes Kalender-Abo bricht.
 
 ## Sehen Eltern dort etwas über Kinder oder über mich?
 
