@@ -1,9 +1,13 @@
+import { unified } from '@astrojs/markdown-remark'
 import node from '@astrojs/node'
 import shipyard from '@levino/shipyard-base'
 import shipyardDocs from '@levino/shipyard-docs'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import { remarkAdmonitionLabels } from './plugins/remark-admonition-labels.mjs'
+import {
+	rehypeAdmonitionLabels,
+	remarkAdmonitionLabels,
+} from './plugins/admonition-labels.mjs'
 import {
 	BETREIBER,
 	PROJECT_NAME,
@@ -36,18 +40,26 @@ export default defineConfig({
 	// Vite-Konfiguration es steht.
 	vite: { plugins: [tailwindcss()] },
 	markdown: {
-		// NUR die Beschriftung der Admonitions. Den Direktiven-Parser und
+		// Astro 7 rendert Markdown standardmäßig mit Sätteri, und Sätteri führt
+		// keine unified-Plugins aus. shipyard-base setzt deshalb selbst den
+		// Prozessor `unified()` aus `@astrojs/markdown-remark` — und übernimmt
+		// dabei, was HIER schon an einem `unified()` hängt. Nur so laufen
+		// eigene Plugins unter Astro 7 überhaupt noch mit.
+		//
+		// `markdown.remarkPlugins` (bis Astro 6 der Weg hierfür) ist seit
+		// Astro 7 abgekündigt.
+		//
+		// NUR die Beschriftung der Admonitions, in zwei Schritten — warum,
+		// steht in `plugins/admonition-labels.mjs`. Den Direktiven-Parser und
 		// `remarkAdmonitions` setzt shipyard-base seit 0.7 selbst; ein zweiter
 		// Eintrag wäre eine zweite Wahrheit über eine Liste, die shipyard
 		// pflegt — und er brächte den in 0.8.1 abgestellten Fehler zurück, bei
-		// dem der Gender-Doppelpunkt („Elternvertreter:in") als Inline-Direktive
-		// zerfällt.
-		//
-		// Dass dieser Eintrag in `defineConfig` steht, ist die Bedingung dafür,
-		// dass er VOR shipyards `remarkAdmonitions` läuft: Astro hängt die
-		// Plugins der Integrationen hinten an. Sonst stünde über jeder
-		// Admonition „Warning" statt „WICHTIG".
-		remarkPlugins: [remarkAdmonitionLabels],
+		// dem der Gender-Doppelpunkt („Elternvertreter:in") als
+		// Inline-Direktive zerfällt.
+		processor: unified({
+			remarkPlugins: [remarkAdmonitionLabels],
+			rehypePlugins: [rehypeAdmonitionLabels],
+		}),
 	},
 	integrations: [
 		shipyard({

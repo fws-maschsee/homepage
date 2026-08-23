@@ -160,13 +160,22 @@ Größe Zeremonie.
 
 Die `@levino/*`-Pakete stehen auf **exakten** Versionen, nicht auf `"*"` oder
 `"^"`. Sie hängen mit `astro`, `tailwindcss` und `daisyui` zu einem Satz
-zusammen, der nur gemeinsam aufgeht: shipyard 0.8.5 verlangt `astro ^6.1.6`
-— deshalb Astro **6.4.8 und nicht 7** — und setzt Tailwind 4 mit daisyUI 5
-voraus. Löst npm eine dieser Versionen frei auf, bricht der Bau an einer
-Stelle, die in eine ganz andere Richtung zeigt, etwa mit
+zusammen, der nur gemeinsam aufgeht: shipyard 0.9.1 verlangt `astro ^7.2.4`
+— deshalb Astro **7.2.4** — und setzt Tailwind 4 mit daisyUI 5 voraus. Löst
+npm eine dieser Versionen frei auf, bricht der Bau an einer Stelle, die in
+eine ganz andere Richtung zeigt, etwa mit
 `Rollup failed to resolve import "virtual:shipyard/css"`. Ein Sprung auf die
 nächste Hauptversion ist immer ein bewusster Schritt für alle vier Pakete
 zusammen.
+
+Was der Sprung von Astro 6 auf 7 mitgebracht hat, steht in
+`plugins/admonition-labels.mjs` und in `astro.config.mjs` bei `markdown`:
+Astro 7 rendert Markdown mit Sätteri statt mit unified, und eigene
+remark-Plugins gehören seither an `unified({…})` aus
+`@astrojs/markdown-remark` statt an das abgekündigte
+`markdown.remarkPlugins`. Zugleich wertet shipyards `remarkAdmonitions` seit
+0.9 den Titel aus `:::note[…]` nicht mehr aus; die deutsche Beschriftung
+setzt deshalb ein rehype-Plugin nachträglich ein.
 
 Seit Tailwind 4 gibt es **keine `tailwind.config.mjs`** und **keine
 Integration `@astrojs/tailwind`** mehr. Die Konfiguration steht in
