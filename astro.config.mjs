@@ -172,7 +172,13 @@ export default defineConfig({
 			// Führt auf der fertigen Seite direkt zum Bearbeiten-Formular auf
 			// GitHub. Das ist der einfachste Weg, Inhalte zu ergänzen — man
 			// braucht nichts installiert zu haben.
-			editUrl: `${REPO_URL}/edit/main/src/content/docs`,
+			// OHNE den Pfad zur Sammlung: shipyard-docs haengt den vollstaendigen
+			// Dateipfad (`src/content/docs/…`) selbst an. Stand hier der Ordner
+			// mit drin, zeigte der Bearbeiten-Link auf
+			// `…/edit/main/src/content/docs/src/content/docs/index.md` — doppelt
+			// und damit auf eine Datei, die es nicht gibt. Das war schon vor dem
+			// Umstieg auf shipyard 0.9 so.
+			editUrl: `${REPO_URL}/edit/main`,
 		}),
 		admonitionTitel,
 	],
