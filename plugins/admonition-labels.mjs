@@ -1,76 +1,59 @@
 import { visit } from 'unist-util-visit'
 
 /**
- * Deutsche Beschriftungen für Admonitions (`:::note[Kein Angebot der Schule]`).
+ * Setzt den im Markdown geschriebenen Titel einer Admonition
+ * (`:::note[Kein Angebot der Schule]`) in die fertige Ueberschrift ein.
  *
- * Warum das hier in ZWEI Schritten steht: `remarkAdmonitions` aus
- * @levino/shipyard-base baut die Admonition, benutzt dabei aber seit 0.9
- * ausdrücklich IMMER den englischen Vorgabetitel („Note", „Warning" …) und
- * wertet den Titel aus `:::note[…]` nicht aus. Bis 0.8 las es `node.label`;
- * ein Plugin, das nur diesen Wert setzt, läuft seit 0.9 ins Leere.
+ * `remarkAdmonitions` aus @levino/shipyard-base baut jede Admonition um und
+ * schreibt dabei IMMER seinen Vorgabetitel („Note", „Warning" …) in die
+ * Ueberschrift — bis 0.8.5 nahm es stattdessen `node.label`, seit 0.9 nicht
+ * mehr (der Kommentar dort haelt fest, dass Container-Direktiven kein solches
+ * Feld tragen). Der geschriebene Titel steht in Wahrheit als erster Absatz im
+ * Rumpf, markiert mit `data.directiveLabel`, und bliebe ohne dieses Plugin
+ * unsichtbar: die Ueberschrift zeigte „Note" statt „Kein Angebot der Schule".
  *
- * Der Titel muss also nachträglich eingesetzt werden — nach shipyards Plugin.
- * Die Reihenfolge der remark-Plugins gibt das nicht her: shipyard hängt seine
- * eigenen hinter die übernommenen. Ein rehype-Plugin dagegen läuft immer nach
- * ALLEN remark-Plugins. Deshalb:
+ * Deshalb laeuft dieses Plugin NACH shipyards Kette und nicht davor — es
+ * korrigiert ein Ergebnis, statt eine Eingabe vorzubereiten. Dafuer sorgt in
+ * `astro.config.mjs` eine eigene, hinter shipyard einsortierte Integration.
  *
- * 1. `remarkAdmonitionLabels` (remark, vor shipyard) markiert den
- *    Titel-Absatz, den remark-directive als erstes Kind mit
- *    `data.directiveLabel` ablegt, als `div.admonition-label`. Der Absatz
- *    bleibt stehen; shipyard packt ihn mit in den Inhalt.
- * 2. `rehypeAdmonitionLabels` (rehype, danach) nimmt diesen Marker wieder
- *    heraus und schreibt seinen Text in die von shipyard gebaute
- *    `div.admonition-heading`.
- *
- * shipyard behält damit die Hoheit über den Aufbau der Admonition; hier steht
- * nur die Beschriftung. Beides wird in `astro.config.mjs` an `unified({…})`
- * übergeben.
+ * Dasselbe Plugin und dasselbe Muster stehen im geteilten Code der
+ * Klassenseiten (`src/remark/admonitionLabels.ts` dort).
  */
-const LABEL_CLASS = 'admonition-label'
+const hatKlasse = (knoten, klasse) => {
+	const klassen = knoten?.data?.hProperties?.className
+	return Array.isArray(klassen) && klassen.includes(klasse)
+}
 
 export const remarkAdmonitionLabels = () => (tree) => {
 	visit(tree, 'containerDirective', (node) => {
-		const [first] = node.children ?? []
-		if (!first || first.type !== 'paragraph' || !first.data?.directiveLabel) {
+		// Genau die Form, die `remarkAdmonitions` hinterlaesst: zwei Kinder,
+		// Ueberschrift und Rumpf. Trifft sie nicht zu, hat shipyard diese
+		// Direktive nicht umgebaut, und dann gibt es hier nichts zu korrigieren.
+		const [ueberschrift, rumpf] = node.children ?? []
+		if (
+			!hatKlasse(ueberschrift, 'admonition-heading') ||
+			!hatKlasse(rumpf, 'admonition-content')
+		) {
 			return
 		}
-		first.data.hName = 'div'
-		first.data.hProperties = { className: [LABEL_CLASS] }
+		const [erstes] = rumpf.children ?? []
+		if (
+			!erstes ||
+			erstes.type !== 'paragraph' ||
+			!erstes.data?.directiveLabel
+		) {
+			return
+		}
+		const label = (erstes.children ?? [])
+			.map((kind) => kind.value ?? '')
+			.join('')
+			.trim()
+		if (!label) {
+			return
+		}
+		ueberschrift.children = [{ type: 'text', value: label }]
+		rumpf.children = (rumpf.children ?? []).slice(1)
 	})
 }
 
-const hasClass = (node, className) =>
-	node?.type === 'element' &&
-	[].concat(node.properties?.className ?? []).includes(className)
-
-const textOf = (node) =>
-	node.type === 'text' ? node.value : (node.children ?? []).map(textOf).join('')
-
-export const rehypeAdmonitionLabels = () => (tree) => {
-	visit(tree, 'element', (node) => {
-		if (!hasClass(node, 'admonition')) {
-			return
-		}
-		const children = node.children ?? []
-		const heading = children.find((child) =>
-			hasClass(child, 'admonition-heading'),
-		)
-		const content = children.find((child) =>
-			hasClass(child, 'admonition-content'),
-		)
-		if (!heading || !content) {
-			return
-		}
-		const index = (content.children ?? []).findIndex((child) =>
-			hasClass(child, LABEL_CLASS),
-		)
-		if (index === -1) {
-			return
-		}
-		const [label] = content.children.splice(index, 1)
-		const title = textOf(label).trim()
-		if (title) {
-			heading.children = [{ type: 'text', value: title }]
-		}
-	})
-}
+export default remarkAdmonitionLabels

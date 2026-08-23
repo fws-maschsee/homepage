@@ -169,13 +169,16 @@ nächste Hauptversion ist immer ein bewusster Schritt für alle vier Pakete
 zusammen.
 
 Was der Sprung von Astro 6 auf 7 mitgebracht hat, steht in
-`plugins/admonition-labels.mjs` und in `astro.config.mjs` bei `markdown`:
-Astro 7 rendert Markdown mit Sätteri statt mit unified, und eigene
-remark-Plugins gehören seither an `unified({…})` aus
+`astro.config.mjs` bei `markdown` und bei der Integration
+`admonitionTitel`: Astro 7 rendert Markdown mit Sätteri statt mit unified,
+und eigene Plugins gehören seither an `unified({…})` aus
 `@astrojs/markdown-remark` statt an das abgekündigte
 `markdown.remarkPlugins`. Zugleich wertet shipyards `remarkAdmonitions` seit
-0.9 den Titel aus `:::note[…]` nicht mehr aus; die deutsche Beschriftung
-setzt deshalb ein rehype-Plugin nachträglich ein.
+0.9 den Titel aus `:::note[…]` nicht mehr aus, sondern schreibt immer seinen
+englischen Vorgabetitel. Die deutsche Beschriftung setzt deshalb ein Plugin
+NACH shipyard ein — untergebracht in einer eigenen, als letzte einsortierten
+Integration, weil nur die Integrationsreihenfolge diesen Nachlauf hergibt.
+Dasselbe Muster fahren die Klassenseiten.
 
 Seit Tailwind 4 gibt es **keine `tailwind.config.mjs`** und **keine
 Integration `@astrojs/tailwind`** mehr. Die Konfiguration steht in

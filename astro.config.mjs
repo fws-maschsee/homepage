@@ -1,13 +1,10 @@
-import { unified } from '@astrojs/markdown-remark'
+import { isUnifiedProcessor, unified } from '@astrojs/markdown-remark'
 import node from '@astrojs/node'
 import shipyard from '@levino/shipyard-base'
 import shipyardDocs from '@levino/shipyard-docs'
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
-import {
-	rehypeAdmonitionLabels,
-	remarkAdmonitionLabels,
-} from './plugins/admonition-labels.mjs'
+import { remarkAdmonitionLabels } from './plugins/admonition-labels.mjs'
 import {
 	BETREIBER,
 	PROJECT_NAME,
@@ -16,6 +13,47 @@ import {
 	SITE_URL,
 } from './src/site.config'
 import appCss from './src/styles/app.css?url'
+
+/**
+ * Hängt `remarkAdmonitionLabels` als LETZTES Plugin an den Markdown-Prozessor.
+ *
+ * Eine eigene Integration und nicht einfach ein Eintrag oben bei `markdown`,
+ * weil die Reihenfolge hier der ganze Punkt ist: shipyard liest in seinem
+ * `astro:config:setup` den bis dahin gesetzten Prozessor aus und hängt seine
+ * eigenen Plugins DAHINTER. Alles, was `defineConfig` beisteuert, läuft also
+ * vor shipyards `remarkAdmonitions` — und dieses Plugin muss danach laufen,
+ * weil es dessen Ergebnis korrigiert: shipyard 0.9 schreibt in jede
+ * Admonition-Überschrift seinen Vorgabetitel („Note") und liest den im
+ * Markdown geschriebenen Titel nicht mehr aus. Bis 0.8.5 nahm es dafür
+ * `node.label`, das ein Plugin VOR ihm setzen konnte; dieser Weg ist zu.
+ *
+ * Dass diese Integration als LETZTE in `integrations` steht, ist damit die
+ * Bedingung dafür, dass über der Admonition auf `/docs` „Kein Angebot der
+ * Schule" steht und nicht „Note". Dasselbe Muster fahren die Klassenseiten.
+ */
+const admonitionTitel = {
+	name: 'fws-homepage-admonition-titel',
+	hooks: {
+		'astro:config:setup': ({ updateConfig, config: astroConfig }) => {
+			const prozessor = astroConfig.markdown?.processor
+			const geerbt =
+				prozessor && isUnifiedProcessor(prozessor)
+					? prozessor.options
+					: undefined
+			updateConfig({
+				markdown: {
+					processor: unified({
+						...geerbt,
+						remarkPlugins: [
+							...(geerbt?.remarkPlugins ?? []),
+							remarkAdmonitionLabels,
+						],
+					}),
+				},
+			})
+		},
+	},
+}
 
 export default defineConfig({
 	site: SITE_URL,
@@ -40,26 +78,26 @@ export default defineConfig({
 	// Vite-Konfiguration es steht.
 	vite: { plugins: [tailwindcss()] },
 	markdown: {
-		// Astro 7 rendert Markdown standardmäßig mit Sätteri, und Sätteri führt
-		// keine unified-Plugins aus. shipyard-base setzt deshalb selbst den
-		// Prozessor `unified()` aus `@astrojs/markdown-remark` — und übernimmt
-		// dabei, was HIER schon an einem `unified()` hängt. Nur so laufen
-		// eigene Plugins unter Astro 7 überhaupt noch mit.
+		// `markdown.processor` statt `markdown.remarkPlugins`: Astro 7 rendert
+		// Markdown standardmäßig mit Sätteri, das überhaupt keine
+		// unified-Plugins fährt. `remarkPlugins` ist nur noch ein veralteter
+		// Umweg (Astro hängt die Liste hinten an den Prozessor und warnt
+		// dabei); der Prozessor ist der Weg.
 		//
-		// `markdown.remarkPlugins` (bis Astro 6 der Weg hierfür) ist seit
-		// Astro 7 abgekündigt.
+		// Er steht hier ohne eigene Plugins, und das ist kein Versehen: Fände
+		// shipyard Sätteri vor, überschriebe es den Prozessor und meldete das
+		// als Warnung bei jedem Bau.
 		//
-		// NUR die Beschriftung der Admonitions, in zwei Schritten — warum,
-		// steht in `plugins/admonition-labels.mjs`. Den Direktiven-Parser und
-		// `remarkAdmonitions` setzt shipyard-base seit 0.7 selbst; ein zweiter
-		// Eintrag wäre eine zweite Wahrheit über eine Liste, die shipyard
-		// pflegt — und er brächte den in 0.8.1 abgestellten Fehler zurück, bei
-		// dem der Gender-Doppelpunkt („Elternvertreter:in") als
-		// Inline-Direktive zerfällt.
-		processor: unified({
-			remarkPlugins: [remarkAdmonitionLabels],
-			rehypePlugins: [rehypeAdmonitionLabels],
-		}),
+		// Das eigene Plugin `remarkAdmonitionLabels` steht bewusst NICHT hier,
+		// sondern in der Integration `admonitionTitel` ganz am Ende der Liste:
+		// Es muss NACH shipyards `remarkAdmonitions` laufen. Begründung dort.
+		//
+		// Den Direktiven-Parser und `remarkAdmonitions` setzt shipyard-base
+		// seit 0.7 selbst; ein zweiter Eintrag wäre eine zweite Wahrheit über
+		// eine Liste, die shipyard pflegt — und er brächte den in 0.8.1
+		// abgestellten Fehler zurück, bei dem der Gender-Doppelpunkt
+		// („Elternvertreter:in") als Inline-Direktive zerfällt.
+		processor: unified(),
 	},
 	integrations: [
 		shipyard({
@@ -136,5 +174,6 @@ export default defineConfig({
 			// braucht nichts installiert zu haben.
 			editUrl: `${REPO_URL}/edit/main/src/content/docs`,
 		}),
+		admonitionTitel,
 	],
 })
