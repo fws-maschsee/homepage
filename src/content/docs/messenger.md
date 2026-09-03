@@ -2,7 +2,7 @@
 title: Ein eigener Messenger für die Klasse
 description: Vorschlag — ein eigener Messenger (Matrix/Element) mit festen Regeln als Alternative zu WhatsApp für Klassen der Schule
 sidebar:
-  position: 6
+  position: 8
 ---
 
 # Ein eigener Messenger für die Klasse – statt WhatsApp
