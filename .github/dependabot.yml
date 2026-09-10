@@ -121,6 +121,17 @@ updates:
           - "*"
         update-types:
           - major
+    ignore:
+      # TypeScript 7 ist fuer eine Astro-Seite noch nicht benutzbar: `astro
+      # check` (unser `npm run typecheck`) laeuft ueber @astrojs/check, und das
+      # Paket steht auf `peer typescript@"^5.0.0 || ^6.0.0"`. Mit typescript 7
+      # im Wurzelprojekt scheitert schon `npm ci` an ERESOLVE -- Test, Deploy
+      # und damit die ganze Seite standen deshalb am 2026-09-10 still, weil ein
+      # Major-Update automatisch nach main gelaufen war. Wieder entfernen,
+      # sobald @astrojs/check einen Peer-Bereich mit TS 7 ausliefert (dann
+      # faellt dieser Block weg).
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: docker
     directory: /
     schedule:
