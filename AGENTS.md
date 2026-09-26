@@ -5,7 +5,7 @@ Für Agenten und Entwickler:innen. Wer nur Texte ändern will, liest die
 
 ## Sprache
 
-Deutsch. In Texten, Commit-Nachrichten und Antworten. Diese Seite
+Deutsch. In Texten, Kommentaren, Commit-Nachrichten und Antworten. Diese Seite
 wird von Eltern, Lehrkräften und einem Schulvorstand gelesen.
 
 Anrede: **Sie**. Die Klassenseiten duzen, weil sie sich an die eigene
@@ -145,9 +145,8 @@ Was hier nicht mehr hineingehört:
   Angebot und keine Bedingung.
 
 ## Minimal comments policy
-
-Keine Kommentare. Guter Code, sprechende Namen und Tests erklären sich selbst.
-Erlaubt ist nur, was muss: Werkzeug-Direktiven (biome-ignore, @ts-expect-error, Shebang …) und höchstens eine Zeile für ein Warum, das kein Name ausdrücken kann. Keine Docstrings, keine Begründungsabsätze, kein auskommentierter Code.
+„Comments are apologies.“ Guter Code, sprechende Namen und Tests erklären sich selbst — normalerweise kein Kommentar.
+Wo Code unerwartet ist (ungewöhnliche Wahl, Workaround, Einschränkung von außen, bewusst gegen die naheliegende Lösung), ist ein kurzer Warum-Kommentar Pflicht. Kein Was, keine Fehlergeschichte, keine Docstrings, kein auskommentierter Code. Werkzeug-Direktiven bleiben.
 
 ## Bauen und prüfen
 

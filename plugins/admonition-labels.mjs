@@ -5,6 +5,7 @@ const hatKlasse = (knoten, klasse) => {
 	return Array.isArray(klassen) && klassen.includes(klasse)
 }
 
+// Korrigiert shipyards Ergebnis: Seit 0.9 schreibt remarkAdmonitions immer „Note“ statt des Titels aus `:::note[…]`.
 export const remarkAdmonitionLabels = () => (tree) => {
 	visit(tree, 'containerDirective', (node) => {
 		const [ueberschrift, rumpf] = node.children ?? []
