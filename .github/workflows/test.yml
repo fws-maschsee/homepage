@@ -22,10 +22,6 @@ jobs:
           node-version: '22'
           cache: 'npm'
 
-      # `npm ci`, nicht `npm install`: Die Lockfile entscheidet. Bricht dieser
-      # Schritt mit "lock file out of sync" ab, wurde package.json geändert,
-      # ohne danach `npm install` laufen zu lassen und die Lockfile
-      # mitzucommitten.
       - run: npm ci
 
       - run: npm run build
