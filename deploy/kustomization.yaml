@@ -2,6 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - app.yaml
+# `latest` nur als Startwert: IfNotPresent zieht neue latest-Stände nie, vor dem Rollout Zeitstempel-Tag eintragen.
 images:
   - name: ghcr.io/fws-maschsee/homepage
     newTag: "latest"

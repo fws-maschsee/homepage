@@ -10,6 +10,7 @@ metadata:
   namespace: homepage
 spec:
   replicas: 1
+  # Alte ReplicaSets halten Image-Schichten fest und treiben den Einzelknoten in DiskPressure.
   revisionHistoryLimit: 0
   progressDeadlineSeconds: 120
   selector:
@@ -22,12 +23,14 @@ spec:
     spec:
       containers:
         - name: app
+          # Ohne Tag: den setzt kustomization.yaml.
           image: ghcr.io/fws-maschsee/homepage
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
               containerPort: 3000
           env:
+            # `::` bindet dual-stack.
             - name: HOST
               value: "::"
             - name: PORT
@@ -36,8 +39,10 @@ spec:
             requests:
               cpu: 50m
               memory: 192Mi
+            # Bewusst kein CPU-Limit: Auf dem Einzelknoten brächte es nur Throttling.
             limits:
               memory: 512Mi
+          # httpGet statt tcpSocket wie bei den Klassenseiten: Diese Seite muss mit 200 antworten, nicht mit 401.
           readinessProbe:
             httpGet:
               path: /
@@ -53,6 +58,7 @@ spec:
             periodSeconds: 20
             timeoutSeconds: 3
             failureThreshold: 3
+          # Deckt sich mit dem Smoke-Test in deploy.yml; nur gemeinsam ändern.
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true

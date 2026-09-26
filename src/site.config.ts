@@ -2,6 +2,7 @@ export const PROJECT_NAME = 'Klassen-Websites Maschsee'
 
 export const SCHOOL_NAME = 'Freie Waldorfschule Hannover-Maschsee'
 
+// Das `-test` ist Absicht: kein offizieller Schulauftritt. Nur mit der Schule gemeinsam ändern.
 export const SITE_DOMAIN = 'fws-maschsee-test.de'
 
 export const SITE_URL = `https://${SITE_DOMAIN}`
@@ -22,6 +23,7 @@ export const BETREIBER = `${CONTACT_NAME}, ${CONTACT_ADDRESS}`
 
 export const IDENTITY_URL = 'https://id.fws-maschsee-test.de'
 
+// Bewusst nur eine Zahl: Klassennamen gehören nicht auf eine öffentliche Seite.
 export const CLASS_COUNT = 2
 
 export const DISCLAIMER_SHORT =

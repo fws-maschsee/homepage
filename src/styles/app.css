@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Die Pakete bringen ihre @source-Pfade selbst mit; `@source` löst keine Paketnamen auf. */
 @import "@levino/shipyard-base";
 @import "@levino/shipyard-docs";
 

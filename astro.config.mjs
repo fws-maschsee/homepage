@@ -14,6 +14,7 @@ import {
 } from './src/site.config'
 import appCss from './src/styles/app.css?url'
 
+// Eigene, zuletzt einsortierte Integration: Das Plugin muss nach shipyards remarkAdmonitions laufen.
 const admonitionTitel = {
 	name: 'fws-homepage-admonition-titel',
 	hooks: {
@@ -40,16 +41,19 @@ const admonitionTitel = {
 
 export default defineConfig({
 	site: SITE_URL,
+	// SSR, obwohl statisch ginge: dasselbe Auslieferungsmuster wie bei den Klassenseiten.
 	output: 'server',
 	adapter: node({
 		mode: 'standalone',
 	}),
 	vite: { plugins: [tailwindcss()] },
 	markdown: {
+		// Leerer unified-Prozessor: Fände shipyard Sätteri vor, ersetzte es ihn mit Warnung bei jedem Bau.
 		processor: unified(),
 	},
 	integrations: [
 		shipyard({
+			// `?url`-Import ist Pflicht; ohne ihn rendert die Seite ohne CSS, und kein Build meldet es.
 			css: appCss,
 			brand: PROJECT_NAME,
 			title: PROJECT_NAME,
@@ -59,10 +63,12 @@ export default defineConfig({
 				content:
 					'<strong>Kein offizielles Angebot der Freien Waldorfschule Hannover-Maschsee.</strong> Privat von Eltern betrieben, von der Schule weder beauftragt noch geprüft.',
 				backgroundColor: 'warning',
+				// Nicht base-content: im dunklen Schema hellgrau auf Gelb.
 				textColor: 'var(--color-warning-content)',
 				isCloseable: false,
 			},
 			footer: { copyright: BETREIBER },
+			// Nur Einstiege: Die Kapitel zeigt die Seitenleiste von shipyard-docs ohnehin.
 			navigation: {
 				start: { label: 'Überblick', href: '/' },
 				docs: { label: 'Dokumentation', href: '/docs' },
@@ -78,8 +84,9 @@ export default defineConfig({
 			],
 		}),
 		shipyardDocs({
+			// Ohne src/content/docs: shipyard-docs hängt den Dateipfad selbst an.
 			editUrl: `${REPO_URL}/edit/main`,
 		}),
-		admonitionTitel,
+		admonitionTitel, // muss die letzte Integration bleiben
 	],
 })

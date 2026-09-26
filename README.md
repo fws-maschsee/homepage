@@ -104,6 +104,18 @@ npm run build
 npm run typecheck
 ```
 
+Scheitert `npm ci` mit „lock file out of sync“, wurde `package.json` ohne
+anschließendes `npm install` geändert: `npm install` ausführen und die
+Lockfile mitcommitten.
+
+## Abhängigkeiten
+
+Dependabot bündelt Updates zu Sammel-PRs. Alles ohne Hauptversionssprung
+(auch Sicherheitsupdates) mergt der Workflow `automerge.yml` selbst, sobald die
+Checks grün sind. Major-Updates bekommen das Label `major` und warten auf
+einen Menschen. TypeScript-Majors sind ausgenommen, bis `@astrojs/check`
+TypeScript 7 unterstützt.
+
 ## Ausrollen
 
 Push auf `main` → GitHub Actions baut ein Image, startet es, prüft, dass es
