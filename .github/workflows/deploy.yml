@@ -1,19 +1,5 @@
 name: Deploy
 
-# Bauen und ins Register schieben - mehr nicht. Dieser Workflow hat KEINEN
-# Cluster-Zugriff: kein kubectl, kein KUBECONFIG, kein id-token, kein Token mit
-# Schreibrecht in anderen Repositories. Ausgerollt wird über GitOps: Der
-# Image-Tag wird in fws-maschsee/server-config festgeschrieben, Argo CD gleicht
-# ab.
-#
-# Gebaut wird auf einem NATIVEN Runner der Zielarchitektur (amd64), nie unter
-# QEMU.
-#
-# Anders als bei den Klassenseiten darf das GHCR-Paket hier ÖFFENTLICH sein:
-# In dieses Image wird nur der Inhalt dieser Erklärseite kompiliert, und der
-# ist ohnehin für alle bestimmt. Es gibt hier nichts, was ein Login schützen
-# würde.
-
 on:
   push:
     branches: [main]
@@ -28,8 +14,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Aus dem GitHub-Kontext statt fest eingetragen: Damit stimmt der Name auch
-  # nach einer Umbenennung des Repositories noch.
   IMAGE: ghcr.io/${{ github.repository }}
 
 jobs:
@@ -39,7 +23,7 @@ jobs:
         include:
           - platform: linux/amd64
             arch: amd64
-            runner: ubuntu-latest # nativ amd64 - NIEMALS QEMU
+            runner: ubuntu-latest
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 30
     steps:
@@ -55,11 +39,6 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # Das Image zuerst in den lokalen Daemon laden, damit es gestartet und
-      # geprüft werden kann, BEVOR irgendetwas im Register landet. Genau das
-      # fängt die Fehlerklasse ab, die erst zur Laufzeit auffällt - etwa eine
-      # Abhängigkeit, die npm unter --omit=dev weggehoistet hat. Der
-      # SSR-Einstiegspunkt ist daran schon einmal gestorben.
       - name: Build for local verification
         uses: docker/build-push-action@v7
         with:
@@ -77,18 +56,11 @@ jobs:
 
       - name: Smoke test the image
         run: |
-          # So starten, wie der Cluster es tut: nicht als root, mit
-          # schreibgeschütztem Root-Dateisystem und beschreibbarem /tmp. Bricht
-          # diese Kombination, muss sie hier brechen und nicht als
-          # CrashLoopBackOff auf dem Knoten.
           docker run -d --name smoke \
             --user 1000:1000 --read-only --tmpfs /tmp \
             -p 3000:3000 "${IMAGE}:verify"
           CODE=000
           for _ in $(seq 1 30); do
-            # curl gibt bei Verbindungsfehler selbst schon 000 aus. Deshalb
-            # `|| true` und NICHT `|| echo 000` - letzteres ergäbe "000000",
-            # und die Prüfung unten bestünde gegen einen toten Server.
             CODE=$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:3000/ || true)
             [ "$CODE" != "000" ] && [ -n "$CODE" ] && break
             sleep 2
@@ -96,12 +68,6 @@ jobs:
           echo "server answered with HTTP $CODE"
           docker logs smoke
           docker rm -f smoke >/dev/null
-          # Hier wird - anders als bei den Klassenseiten - auf HTTP 200
-          # bestanden und nicht auf "irgendeine Antwort". Die Klassenseiten
-          # antworten unangemeldet mit 401, das ist dort der gesunde Zustand.
-          # Diese Seite ist öffentlich: Jede andere Antwort als 200 auf die
-          # Startseite ist ein Fehler, und ein 401 wäre der schlimmste - er
-          # hieße, dass hier versehentlich ein Login davor gelandet ist.
           case "$CODE" in
             200) echo "smoke test passed (HTTP 200)" ;;
             ''|000) echo "::error::server never answered"; exit 1 ;;

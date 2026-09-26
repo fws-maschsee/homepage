@@ -1,28 +1,3 @@
----
-/**
- * Der Aufbau in einem Bild: Wer kommt herein, was steht dazwischen, was
- * läuft darauf.
- *
- * Bewusst als Inline-SVG und nicht als Bilddatei: Es passt sich damit dem
- * hellen wie dem dunklen Farbschema an (die Farben kommen als
- * Tailwind-/daisyUI-Klassen, nicht fest verdrahtet), es bleibt beim Zoomen
- * scharf, und es kostet keinen zweiten Netzwerkabruf.
- *
- * Das Format ist hochkant statt quer. Die meisten Eltern lesen diese Seite
- * auf dem Handy; ein breites Diagramm wäre dort auf Briefmarkengröße
- * geschrumpft. Die Schriftgrößen sind in Nutzereinheiten so gewählt, dass sie
- * auf einem 360 Pixel breiten Display noch lesbar sind.
- *
- * ZWEI REGELN FÜR ÄNDERUNGEN:
- *
- * 1. Durchgezogener Rahmen = läuft. Gestrichelter Rahmen = möglich, aber
- *    nicht gebaut. Die Bildunterschrift sagt das; wer die Unterscheidung
- *    aufweicht, nimmt dem Bild seine Aussage.
- * 2. Keine konkreten Klassen, Lehrkräfte oder deren Adressen. Die Zahl
- *    genügt. Siehe AGENTS.md.
- */
----
-
 <figure class="my-8">
   <svg
     viewBox="0 0 420 722"
@@ -58,7 +33,6 @@
       </marker>
     </defs>
 
-    <!-- Wer zugreift -->
     <rect
       x="56"
       y="6"
@@ -87,7 +61,6 @@
       >verschlüsselte Verbindung</text
     >
 
-    <!-- Der Server -->
     <rect
       x="6"
       y="84"
@@ -106,7 +79,6 @@
       >netcup · Deutschland · rund 8 € im Monat</text
     >
 
-    <!-- Eingangstor -->
     <rect
       x="24"
       y="144"
@@ -138,7 +110,6 @@
       stroke-width="1.5"
       marker-end="url(#pfeil)"></line>
 
-    <!-- Anmeldedienst -->
     <rect
       x="24"
       y="218"
@@ -182,7 +153,6 @@
       class="fill-base-content/70"
       font-size="12">Wer ist das, und wozu gehört sie oder er?</text>
 
-    <!-- Was heute läuft: durchgezogener Rahmen -->
     <rect
       x="24"
       y="322"
@@ -239,7 +209,6 @@
       class="fill-base-content/70"
       font-size="11">statt langer Verteilerketten</text>
 
-    <!-- Laeuft: durchgezogener Rahmen -->
     <rect
       x="24"
       y="396"
@@ -313,7 +282,6 @@
       class="fill-base-content/70"
       font-size="11">Gemessen am 4.8.2026: 4–5 % Rechenleistung, 43 % Speicher.</text>
 
-    <!-- Git -->
     <line
       x1="210"
       y1="650"

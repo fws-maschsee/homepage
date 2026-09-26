@@ -12,32 +12,6 @@ import {
 	TEMPLATE_URL,
 } from '../site.config'
 
-// HINWEIS AN SPÄTERE BEARBEITER
-//
-// Diese Seite ist ein Angebot, keine Rechtfertigung. Sie beschreibt, was
-// man damit machen kann, was es kostet und wie die Schule es übernehmen
-// kann. Wenn ein Absatz erklärt, warum etwas in Ordnung ist, statt was es
-// kann, gehört er gestrichen.
-//
-// Zwei Dinge dürfen sich nicht vermischen:
-//
-//   „Heute im Einsatz"   — nur was im Betrieb ist. Indikativ.
-//   „Was möglich wird"   — Ausblick. Durchgehend Konjunktiv.
-//
-// Der Unterschied muss beim Lesen ankommen, ohne dass irgendwo „noch nicht"
-// steht. Wer einen Ausblick nach vorne schiebt, weil er „bald fertig" ist,
-// beschädigt das Einzige, was diese Seite besitzt: dass man ihr glauben
-// kann. Beim ersten Nachfragen aus dem Kollegium fällt so etwas auf.
-//
-// Und: KEINE konkreten Klassen, Lehrkräfte oder deren Adressen. Die Zahl
-// trägt das Argument, der Name trägt nichts bei. Siehe AGENTS.md.
-
-/**
- * Was auf derselben Grundlage möglich wird. Ausblick — nichts davon ist
- * gebaut. Deshalb steht in jedem Eintrag ein Konjunktiv oder ein „ließe
- * sich"; wer hier etwas in den Indikativ setzt, muss es vorher gebaut
- * haben.
- */
 const moeglich = [
 	{
 		titel: 'Öffentliche Seiten für Arbeitsgemeinschaften',
@@ -69,21 +43,6 @@ const moeglich = [
 	},
 ]
 
-/**
- * Die Fragen.
- *
- * EINE WEITERE FRAGE ERGÄNZEN: ein Objekt an dieses Array anhängen —
- * `frage` als eine Zeile, `antwort` als Liste von Absätzen. Die Reihenfolge
- * im Array ist die Reihenfolge auf der Seite. Sonst ist nichts zu tun.
- *
- * Zwei Formulierungsregeln, die hier bindend sind:
- *
- *  - Nirgends pauschal „ist datenschutzkonform". Das ist eine rechtliche
- *    Aussage, die an Prozessen hängt und nicht an Technik; sie hält keiner
- *    Nachfrage stand. Stattdessen benennen, was tatsächlich zutrifft:
- *    Standort, Zugriffsbeschränkung, Löschbarkeit.
- *  - Keine Zahl ohne Beleg. Wer eine Zahl ändert, misst sie vorher nach.
- */
 const fragen = [
 	{
 		frage:
@@ -140,12 +99,6 @@ const weiterlesen = [
   description="Eine gemeinsame Grundlage, auf der alles laufen kann, was eine Schule an Software braucht — von der geschützten Klassenseite bis zur Anwendung, die Schüler:innen selbst bauen. Läuft, wird genutzt, kostet rund zehn Euro im Monat."
 >
   <div class="mx-auto max-w-3xl py-10 md:py-16">
-    <!--
-      Der Statushinweis. Kurz, sachlich, ohne Kasten — er klärt eine
-      Verwechslungsgefahr und ist keine Verteidigung. Er bleibt; zusätzlich
-      steht er als nicht wegklickbarer Balken über jeder Seite
-      (astro.config.mjs, announcementBar).
-    -->
     <p class="border-l-4 border-base-300 pl-4 text-sm leading-relaxed opacity-70">
       Privates Angebot aus der Elternschaft. Kein offizielles Angebot der
       {SCHOOL_NAME}. Auch die Adresse sagt das:
@@ -168,7 +121,6 @@ const weiterlesen = [
       </div>
     </header>
 
-    <!-- ================= 1. Was man damit machen kann ============== -->
     <section class="mt-16">
       <h2 class="text-2xl font-bold md:text-3xl">Was man damit machen kann</h2>
 
@@ -232,7 +184,6 @@ const weiterlesen = [
       <Architektur />
     </section>
 
-    <!-- ================= 2. Was es kostet ========================== -->
     <section class="mt-16">
       <h2 class="text-2xl font-bold md:text-3xl">Was es kostet</h2>
       <p class="mt-4 text-lg leading-relaxed">
@@ -255,7 +206,6 @@ const weiterlesen = [
       </p>
     </section>
 
-    <!-- ================= 3. Übernahme ============================== -->
     <section
       id="uebernahme"
       class="mt-16 scroll-mt-24 rounded-lg border border-primary/40 bg-primary/5 p-6 md:p-8"
@@ -283,7 +233,6 @@ const weiterlesen = [
       </div>
     </section>
 
-    <!-- ================= 4. Fragen ================================= -->
     <section id="fragen" class="mt-16 scroll-mt-24">
       <h2 class="text-2xl font-bold md:text-3xl">Fragen</h2>
       <div class="mt-6 space-y-8">
@@ -305,7 +254,6 @@ const weiterlesen = [
       </p>
     </section>
 
-    <!-- ================= Weiterlesen und Kontakt =================== -->
     <section class="mt-16">
       <h2 class="text-2xl font-bold md:text-3xl">Weiterlesen</h2>
       <ul class="mt-6 flex flex-wrap gap-3">

@@ -5,7 +5,7 @@ Für Agenten und Entwickler:innen. Wer nur Texte ändern will, liest die
 
 ## Sprache
 
-Deutsch. In Texten, Kommentaren, Commit-Nachrichten und Antworten. Diese Seite
+Deutsch. In Texten, Commit-Nachrichten und Antworten. Diese Seite
 wird von Eltern, Lehrkräften und einem Schulvorstand gelesen.
 
 Anrede: **Sie**. Die Klassenseiten duzen, weil sie sich an die eigene
@@ -144,6 +144,11 @@ Was hier nicht mehr hineingehört:
   Der Betrieb ist auf Dauer angelegt; die Übernahme durch die Schule ist ein
   Angebot und keine Bedingung.
 
+## Minimal comments policy
+
+Keine Kommentare. Guter Code, sprechende Namen und Tests erklären sich selbst.
+Erlaubt ist nur, was muss: Werkzeug-Direktiven (biome-ignore, @ts-expect-error, Shebang …) und höchstens eine Zeile für ein Warum, das kein Name ausdrücken kann. Keine Docstrings, keine Begründungsabsätze, kein auskommentierter Code.
+
 ## Bauen und prüfen
 
 ```bash
@@ -168,9 +173,8 @@ eine ganz andere Richtung zeigt, etwa mit
 nächste Hauptversion ist immer ein bewusster Schritt für alle vier Pakete
 zusammen.
 
-Was der Sprung von Astro 6 auf 7 mitgebracht hat, steht in
-`astro.config.mjs` bei `markdown` und bei der Integration
-`admonitionTitel`: Astro 7 rendert Markdown mit Sätteri statt mit unified,
+Was der Sprung von Astro 6 auf 7 mitgebracht hat (in `astro.config.mjs`
+bei `markdown` und bei der Integration `admonitionTitel`): Astro 7 rendert Markdown mit Sätteri statt mit unified,
 und eigene Plugins gehören seither an `unified({…})` aus
 `@astrojs/markdown-remark` statt an das abgekündigte
 `markdown.remarkPlugins`. Zugleich wertet shipyards `remarkAdmonitions` seit
