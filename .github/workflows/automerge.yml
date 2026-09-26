@@ -3,7 +3,7 @@ name: Automerge
 on:
   workflow_run:
     # Alle Workflows, die auf PRs laufen; fehlt einer, bricht der Lauf unten laut ab.
-    workflows: [Dependabot einordnen, Test, Biome]
+    workflows: [Dependabot einordnen, Test]
     types: [completed]
 permissions:
   contents: write

@@ -24,6 +24,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Biome
+        run: npx biome ci
+
       - run: npm run build
 
       - run: npm run typecheck
