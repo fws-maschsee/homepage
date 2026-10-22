@@ -1,39 +1,35 @@
 # Deployment
 
-Die beiden Manifeste hier beschreiben, wie diese Seite im k3s-Cluster läuft.
-Sie werden **nicht von hier aus** angewandt.
+Die Manifeste hier beschreiben, wie diese Seite im k3s-Cluster läuft. Sie
+werden **nicht von hier aus** angewandt, sondern von Argo CD gelesen.
 
 ## Wie es zusammenhängt
 
 ```
 1. dieses Repo, push auf main
      → Deploy-Workflow: Image bauen (nativ amd64), starten, auf HTTP 200
-       prüfen, nach ghcr.io pushen, Tag in der Zusammenfassung nennen
+       prüfen, nach ghcr.io pushen
+     → deploy/kustomization.yaml auf :<sha> pinnen und als Branch
+       `production` pushen (nur, wenn der Lauf zur Spitze von main gehört)
 
 2. fws-maschsee/server-config
-     → apps/homepage/kustomization.yaml: newTag von Hand eintragen
+     → apps/homepage.yaml: Namespace + Application, die `production`,
+       Pfad deploy/, liest
 
 3. Cluster
-     → Argo CD sieht die Änderung und rollt aus
+     → Argo CD sieht den neuen Stand auf `production` und rollt aus
 ```
 
-## Einmalig einrichten
+Auf `main` steht in `kustomization.yaml` nur ein Platzhalter-Tag; was läuft,
+steht auf `production`. Den Namespace verwaltet server-config, nicht dieses
+Repo — wie bei konto und den Klassenseiten (`patterns/app-deploy-ci` dort).
 
-1. `app.yaml` und `kustomization.yaml` nach `apps/homepage/` in
-   [fws-maschsee/server-config](https://github.com/fws-maschsee/server-config)
-   kopieren (diese README bleibt hier).
-2. `homepage/` in `apps/kustomization.yaml` dort eintragen.
-3. DNS: Der A-Record des Apex `fws-maschsee-test.de` zeigt bereits auf den
-   Knoten. Nichts zu tun.
+Bis Oktober 2026 lagen die Manifeste in server-config unter `apps/homepage/`,
+und der Tag wurde dort von Hand aus der Run-Summary nachgetragen. Das blieb
+liegen: Ein Image mit Node-Sicherheitsupdate war gebaut, lief aber nicht.
 
-`server-config` ist inzwischen **privat**; Argo CD liest es über die
-GitHub App `Server FWS Maschsee`. Das ist eingerichtet.
-
-## Bei jedem Rollout
-
-Der Deploy-Workflow schreibt den zu setzenden Tag in seine Zusammenfassung.
-Diesen Tag in `apps/homepage/kustomization.yaml` unter `newTag` eintragen und
-pushen. Mehr passiert nicht — Argo CD erledigt den Rest.
+`server-config` ist **privat**; Argo CD liest es und dieses Repo über die
+GitHub App `Server FWS Maschsee`.
 
 ## Was hier anders ist als bei den Klassenseiten
 

@@ -79,7 +79,7 @@ Verfügbar sind `note`, `tip`, `info`, `warning` und `danger`.
 | `src/content/docs/` | Alle Langtexte (siehe oben). |
 | `src/site.config.ts` | Namen, Domains, Adressen — zentral an einer Stelle. |
 | `astro.config.mjs` | Kopfzeilen-Navigation und der Hinweisbalken. |
-| `deploy/` | Kubernetes-Manifeste; sie gehören nach `server-config`. |
+| `deploy/` | Kubernetes-Manifeste; die CI pinnt den Tag und schiebt sie auf den Branch `production`, von dem Argo CD liest. |
 
 **Zahlen und Fakten im Text** (Serverkosten, Auslastung, Versionsnummern)
 stehen ausgeschrieben im Markdown und nicht in `site.config.ts`. Sie ändern
@@ -119,10 +119,10 @@ gibt es keine; die kommen erst, wenn der Support der genutzten Version endet.
 ## Ausrollen
 
 Push auf `main` → GitHub Actions baut ein Image, startet es, prüft, dass es
-mit **HTTP 200** antwortet, und schiebt es nach `ghcr.io`. Den Tag aus der
-Zusammenfassung des Laufs dann in
-[`fws-maschsee/server-config`](https://github.com/fws-maschsee/server-config)
-unter `apps/homepage/kustomization.yaml` eintragen; Argo CD rollt aus.
+mit **HTTP 200** antwortet, und schiebt es nach `ghcr.io`. Danach pinnt der
+Workflow `deploy/` auf genau dieses Image (`:<sha>`) und schiebt das auf den
+Branch `production`. Argo CD liest `production` und rollt aus — von Hand ist
+nichts mehr einzutragen.
 Ausführlich in [`deploy/README.md`](deploy/README.md).
 
 ## Der Unterschied zu den Klassenseiten
