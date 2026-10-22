@@ -28,7 +28,7 @@
 			"enabled": false
 		},
 		{
-			"description": "Eigenes App-Image baut die CI; der Tag wird in server-config gesetzt, nicht von Renovate.",
+			"description": "Eigenes App-Image baut die CI; den Tag pinnt der Deploy-Job auf dem Branch production, nicht Renovate.",
 			"matchPackageNames": ["ghcr.io/fws-maschsee/**"],
 			"enabled": false
 		}

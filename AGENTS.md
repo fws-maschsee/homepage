@@ -209,7 +209,7 @@ src/content/docs/*.md           alle Langtexte
 src/site.config.ts              Namen, Domains, Adressen — zentral
 src/styles/app.css              der CSS-Einstieg: Tailwind 4, daisyUI 5
 astro.config.mjs                Navigation, Hinweisbalken, Besucherzählung
-deploy/                         K8s-Manifeste; gehören nach server-config
+deploy/                         K8s-Manifeste; CI pinnt sie auf `production`
 ```
 
 Die Aufbau-Grafik ist bewusst Inline-SVG mit Tailwind-/daisyUI-Farbklassen

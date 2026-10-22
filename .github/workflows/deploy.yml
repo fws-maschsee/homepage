@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 concurrency:
@@ -98,17 +98,50 @@ jobs:
             -t ${{ env.IMAGE }}:latest \
             ${{ env.IMAGE }}@${{ steps.build.outputs.digest }}
 
-      - name: Report the tag to pin
+      # Ein neu gestarteter alter Lauf würde die Produktion sonst auf einen alten Stand zurückdrehen.
+      - name: Nur die Spitze von main darf ausrollen
+        run: |
+          git fetch --quiet origin main
+          spitze=$(git rev-parse origin/main)
+          echo "dieser Lauf: ${{ github.sha }}"
+          echo "Spitze main: $spitze"
+          [ "$spitze" = "${{ github.sha }}" ] || {
+            echo "::error::Dieser Lauf gehoert nicht zur Spitze von main — production bleibt, wo es ist"
+            exit 1; }
+
+      - name: Install kustomize
+        run: |
+          curl -sSL https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.4.3/kustomize_v5.4.3_linux_amd64.tar.gz \
+            | sudo tar xz -C /usr/local/bin
+          kustomize version
+
+      # `kustomize build` vor dem Push: ein kaputtes deploy/ liesse Argo CD auf production hängen.
+      - name: Pin deploy/ to the freshly built :<sha> image
+        working-directory: deploy
+        run: |
+          kustomize edit set image ${{ env.IMAGE }}=${{ env.IMAGE }}:${{ github.sha }}
+          kustomize build . > /dev/null
+          git --no-pager diff -- kustomization.yaml
+
+      # Eigener Branch `production` statt Commit auf main: ein Bot-Commit auf main löste den nächsten Build aus.
+      - name: Publish pinned deploy/ to the GitOps 'production' branch
+        run: |
+          git config user.name  "deploy-bot"
+          git config user.email "deploy-bot@users.noreply.github.com"
+          git add deploy/kustomization.yaml
+          git commit -m "chore(deploy): roll to ${{ github.sha }}"
+          # Voll qualifizierte Ref, weil git für einen noch nicht existierenden Branch keinen Refnamen errät.
+          git push --force origin HEAD:refs/heads/production
+
+      - name: Report the deployed tag
         run: |
           {
-            echo "### Image gebaut"
+            echo "### Auf \`production\` veroeffentlicht"
             echo
             echo '```'
+            echo "${IMAGE}:${{ github.sha }}"
             echo "${IMAGE}:${{ steps.tag.outputs.tag }}"
             echo '```'
             echo
-            echo "Diesen Tag in \`apps/homepage/kustomization.yaml\` von"
-            echo "[fws-maschsee/server-config](https://github.com/fws-maschsee/server-config) eintragen"
-            echo "und pushen - Argo CD rollt aus."
+            echo "Argo CD zieht den Branch \`production\` und rollt aus."
           } >> "$GITHUB_STEP_SUMMARY"
-
