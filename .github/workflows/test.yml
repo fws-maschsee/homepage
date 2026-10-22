@@ -25,8 +25,10 @@ jobs:
 
       - run: npm ci
 
+      - uses: biomejs/setup-biome@v2
+
       - name: Biome
-        run: npx biome ci
+        run: biome ci
 
       - run: npm run build
 
