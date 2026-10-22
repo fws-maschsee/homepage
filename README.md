@@ -110,11 +110,11 @@ Lockfile mitcommitten.
 
 ## Abhängigkeiten
 
-Dependabot bündelt Updates zu Sammel-PRs. Alles ohne Hauptversionssprung
-(auch Sicherheitsupdates) mergt der Workflow `automerge.yml` selbst, sobald die
-Checks grün sind. Major-Updates bekommen das Label `major` und warten auf
-einen Menschen. TypeScript-Majors sind ausgenommen, bis `@astrojs/check`
-TypeScript 7 unterstützt.
+Renovate (Mend-App, Konfiguration in `renovate.json`) hält npm-Pakete, das
+Node-Basis-Image (per Digest gepinnt) und die Actions aktuell. npm-Minor/Patch
+kommen als ein Sammel-PR pro Woche, Sicherheitsfixes und neue Image-Digests
+sofort. Renovate mergt selbst, sobald die Checks grün sind. Major-Updates
+gibt es keine; die kommen erst, wenn der Support der genutzten Version endet.
 
 ## Ausrollen
 
