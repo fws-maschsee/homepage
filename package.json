@@ -18,7 +18,7 @@
 		"@levino/shipyard-docs": "0.9.4",
 		"@tailwindcss/typography": "^0.5.20",
 		"@tailwindcss/vite": "4.3.3",
-		"astro": "7.4.0",
+		"astro": "7.4.7",
 		"daisyui": "5.7.50",
 		"html-escaper": "^3.0.3",
 		"tailwindcss": "4.3.3"
