@@ -1,8 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - app.yaml
+- app.yaml
 # Den Tag schreibt der Deploy-Job auf den Branch `production`, von dem Argo CD liest; auf main bleibt der Platzhalter.
 images:
-  - name: ghcr.io/fws-maschsee/homepage
-    newTag: "0000000000"
+- name: ghcr.io/fws-maschsee/homepage
+  newName: ghcr.io/fws-maschsee/homepage
+  newTag: f5460c1841d903c728c6b4c2eaa2395b10c4ea44
